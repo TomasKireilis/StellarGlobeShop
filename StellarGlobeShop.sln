@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StellarGlobeShopUI.Service", "StellarGlobeShopUI.Service\StellarGlobeShopUI.Service.csproj", "{DA21BA30-B892-478A-A585-70AA7BC7B5F0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8501460E-8153-4833-81C4-47582C59533A} = {8501460E-8153-4833-81C4-47582C59533A}
+		{9A0507C3-354D-4FB7-BCCA-D7A4B4912731} = {9A0507C3-354D-4FB7-BCCA-D7A4B4912731}
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassMapper", "TypeConverter\ClassMapper.csproj", "{8501460E-8153-4833-81C4-47582C59533A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RabbitMQLibrary", "RabbitMQLibrary\RabbitMQLibrary.csproj", "{9A0507C3-354D-4FB7-BCCA-D7A4B4912731}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA21BA30-B892-478A-A585-70AA7BC7B5F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA21BA30-B892-478A-A585-70AA7BC7B5F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA21BA30-B892-478A-A585-70AA7BC7B5F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA21BA30-B892-478A-A585-70AA7BC7B5F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8501460E-8153-4833-81C4-47582C59533A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8501460E-8153-4833-81C4-47582C59533A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8501460E-8153-4833-81C4-47582C59533A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8501460E-8153-4833-81C4-47582C59533A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A0507C3-354D-4FB7-BCCA-D7A4B4912731}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A0507C3-354D-4FB7-BCCA-D7A4B4912731}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A0507C3-354D-4FB7-BCCA-D7A4B4912731}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A0507C3-354D-4FB7-BCCA-D7A4B4912731}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C08502D4-E9DB-41E3-ACB2-FDEA3CC9C139}
+	EndGlobalSection
+EndGlobal
