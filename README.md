@@ -1,2 +1,2 @@
 # StellarGlobeShop
-Made as learning project containing microservices architecture, graphql communication, rabbitmq broker, asp.net API servises and react web app.
+Made as learning and representational project containing microservices architecture, GraphQL communication with Hotchocolate and RabbitMQ broker. 
