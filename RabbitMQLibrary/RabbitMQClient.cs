@@ -25,6 +25,7 @@ namespace RabbitMQLibrary
             _connectionFactory.Password = connectionData.Password;
             _connectionFactory.VirtualHost = connectionData.VirtualHost;
             _connectionFactory.HostName = connectionData.HostName;
+            _connectionFactory.Port = connectionData.Port;
             if (openConnection) OpenNewConnection();
         }
 

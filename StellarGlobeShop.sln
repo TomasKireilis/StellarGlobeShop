@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StellarGlobeShopUI.Service", "StellarGlobeShopUI.Service\StellarGlobeShopUI.Service.csproj", "{DA21BA30-B892-478A-A585-70AA7BC7B5F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StellarGlobeShopUI.Service", "StellarGlobeShopUI.Service\StellarGlobeShopUI.Service.csproj", "{DA21BA30-B892-478A-A585-70AA7BC7B5F0}"
 	ProjectSection(ProjectDependencies) = postProject
 		{8501460E-8153-4833-81C4-47582C59533A} = {8501460E-8153-4833-81C4-47582C59533A}
 		{9A0507C3-354D-4FB7-BCCA-D7A4B4912731} = {9A0507C3-354D-4FB7-BCCA-D7A4B4912731}
@@ -12,6 +12,14 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassMapper", "TypeConverter\ClassMapper.csproj", "{8501460E-8153-4833-81C4-47582C59533A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RabbitMQLibrary", "RabbitMQLibrary\RabbitMQLibrary.csproj", "{9A0507C3-354D-4FB7-BCCA-D7A4B4912731}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{3122D671-EDA1-460C-A3A1-3050D5E3EF26}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StellarGlobe.MyShop", "StellarGlobe.MyShop\StellarGlobe.MyShop.csproj", "{9413FA3D-2BE4-405F-A8A1-05F09AB4B7CB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8501460E-8153-4833-81C4-47582C59533A} = {8501460E-8153-4833-81C4-47582C59533A}
+		{9A0507C3-354D-4FB7-BCCA-D7A4B4912731} = {9A0507C3-354D-4FB7-BCCA-D7A4B4912731}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,9 +39,16 @@ Global
 		{9A0507C3-354D-4FB7-BCCA-D7A4B4912731}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A0507C3-354D-4FB7-BCCA-D7A4B4912731}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A0507C3-354D-4FB7-BCCA-D7A4B4912731}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9413FA3D-2BE4-405F-A8A1-05F09AB4B7CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9413FA3D-2BE4-405F-A8A1-05F09AB4B7CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9413FA3D-2BE4-405F-A8A1-05F09AB4B7CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9413FA3D-2BE4-405F-A8A1-05F09AB4B7CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9413FA3D-2BE4-405F-A8A1-05F09AB4B7CB} = {3122D671-EDA1-460C-A3A1-3050D5E3EF26}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C08502D4-E9DB-41E3-ACB2-FDEA3CC9C139}

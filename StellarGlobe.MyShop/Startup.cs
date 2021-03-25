@@ -8,10 +8,10 @@ using Microsoft.Extensions.Logging;
 using RabbitMQ.Client;
 using RabbitMQLibrary;
 using RabbitMQLibrary.Interfaces;
-using StellarGlobeShopUI.Service.GraphQl;
-using StellarGlobeShopUI.Service.Services.MessageBus.RabbitMQ;
+using StellarGlobe.MyShop.GraphQl;
+using StellarGlobe.MyShop.Services.MessageBus.RabbitMQ;
 
-namespace StellarGlobeShopUI.Service
+namespace StellarGlobe.MyShop
 {
     public class Startup
     {
@@ -34,6 +34,7 @@ namespace StellarGlobeShopUI.Service
                     x.GetService<ILogger<RabbitMqClient>>()));
 
             services.AddScoped<IMessageBus, RabbitMQMessageBus>();
+
             //GraphQL
             GraphQLCServiceConfigurator.SetUpGraphQLDependencies(services);
         }
