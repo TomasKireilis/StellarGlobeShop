@@ -1,18 +1,20 @@
-﻿using HotChocolate;
+﻿using System;
+using HotChocolate;
 using StellarGlobe.MyShop.GraphQl.ModelTypes;
 using System.Collections.Generic;
 using System.Linq;
 using HotChocolate.Data;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using StellarGlobe.MyShop.Database;
 
 namespace StellarGlobe.MyShop.GraphQl.Queries
 {
-    public class MyShopQuery
+    public class MyShopRootQuery
     {
         [UseDbContext(typeof(MyShopContext))]
-        public IQueryable<Product> GetProducts([Service] MyShopContext myShopContext)
+        public Shop GetShop(Guid id, [ScopedService] MyShopContext myShopContext)
         {
-            return myShopContext.Products;
+            return myShopContext.Shops.FirstOrDefault(x => x.Id == id);
         }
     }
 }

@@ -7,9 +7,10 @@ namespace StellarGlobe.MyShop.GraphQl
     {
         public static void SetUpGraphQLDependencies(IServiceCollection services)
         {
-            services.AddScoped<MyShopQuery>();
-            services.AddGraphQLServer()
-                .AddQueryType<RootQuery>();
+            services
+
+                .AddGraphQLServer()
+                .AddQueryType<MyShopRootQuery>();
         }
     }
 }
