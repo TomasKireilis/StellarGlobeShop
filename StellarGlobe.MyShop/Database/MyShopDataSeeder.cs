@@ -2,10 +2,8 @@
 using System.IO;
 using System.Linq;
 using System.Text.Json;
-using HotChocolate.Data;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
-using StellarGlobe.MyShop.GraphQl.ModelTypes;
 using StellarGlobe.MyShop.Models;
 
 namespace StellarGlobe.MyShop.Database

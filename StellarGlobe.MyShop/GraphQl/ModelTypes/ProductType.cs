@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using HotChocolate;
-using HotChocolate.Data;
 using HotChocolate.Types;
 using StellarGlobe.MyShop.Database;
 using StellarGlobe.MyShop.Models;

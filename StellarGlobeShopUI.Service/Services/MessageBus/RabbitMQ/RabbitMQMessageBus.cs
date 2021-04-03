@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using ClassMapper.JsonMapper;
 using Microsoft.Extensions.Logging;
 using RabbitMQ.Client;
 using RabbitMQLibrary.Interfaces;
-using StellarGlobeShopUI.Service.Models;
-using StellarGlobeShopUI.Service.Services.MessageBus.Models;
 
 namespace StellarGlobeShopUI.Service.Services.MessageBus.RabbitMQ
 {

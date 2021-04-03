@@ -8,7 +8,6 @@ using Microsoft.Extensions.Logging;
 using RabbitMQ.Client;
 using RabbitMQLibrary;
 using RabbitMQLibrary.Interfaces;
-using StellarGlobeShopUI.Service.GraphQl;
 using StellarGlobeShopUI.Service.Services.MessageBus.RabbitMQ;
 
 namespace StellarGlobeShopUI.Service

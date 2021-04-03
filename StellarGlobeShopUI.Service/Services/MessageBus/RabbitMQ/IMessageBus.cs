@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using RabbitMQ.Client;
-using StellarGlobeShopUI.Service.Models;
 
 namespace StellarGlobeShopUI.Service.Services.MessageBus.RabbitMQ
 {

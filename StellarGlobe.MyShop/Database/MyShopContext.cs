@@ -1,6 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using StellarGlobe.MyShop.GraphQl.ModelTypes;
 using StellarGlobe.MyShop.Models;
 
 namespace StellarGlobe.MyShop.Database
