@@ -39,6 +39,7 @@ namespace StellarGlobe.MyShop
 
             services.AddPooledDbContextFactory<MyShopContext>(opt => opt.UseSqlServer(Configuration["DbContext:ConnectionString"]));
             services.AddTransient<MyShopDataSeeder>();
+
             //GraphQL
             GraphQLCServiceConfigurator.SetUpGraphQLDependencies(services);
         }
