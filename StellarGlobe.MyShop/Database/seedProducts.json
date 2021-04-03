@@ -1,10 +1,16 @@
 [
   {
     "Name": "Berries",
-    "Quantity": 5
+    "StockQuantity": 5,
+    "Id": "d99485c2-c93e-4fbb-94fe-20f3f4197bf7",
+    "ShopId": "99d0dace-2cac-48df-b8a0-d8c7f78f9fca",
+    "SellingPrice": "1.45"
   },
   {
     "Name": "Flour",
-    "Quantity": 2
+    "StockQuantity": 2,
+    "Id": "4bb56adb-e080-4e6e-81d9-5bfd787c8340",
+    "ShopId": "99d0dace-2cac-48df-b8a0-d8c7f78f9fca",
+    "SellingPrice": "3.45"
   }
 ]

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using HotChocolate.Execution;
 using HotChocolate.Execution.Instrumentation;
@@ -24,8 +25,12 @@ namespace StellarGlobeShopUI.Service.GraphQl
 
         public override IActivityScope ExecuteRequest(IRequestContext context)
         {
-            var queryString = context.Request.Query?.ToString().Replace("\r\n", "");
-            _logger.LogInformation($"Processing query: {queryString}");
+            if (context.Request.Query != null)
+            {
+                var queryString = Regex.Replace(context.Request.Query.ToString(), @"\s+", " ");
+                _logger.LogInformation($"Processing query: {queryString}");
+            }
+
             return EmptyScope;
         }
     }

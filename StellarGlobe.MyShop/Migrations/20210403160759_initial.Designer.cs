@@ -10,8 +10,8 @@ using StellarGlobe.MyShop.Database;
 namespace StellarGlobe.MyShop.Migrations
 {
     [DbContext(typeof(MyShopContext))]
-    [Migration("20210328155356_ForegnKeyFix")]
-    partial class ForegnKeyFix
+    [Migration("20210403160759_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -30,11 +30,17 @@ namespace StellarGlobe.MyShop.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Quantity")
+                    b.Property<decimal>("SellingPrice")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("SellingQuantity")
                         .HasColumnType("int");
 
-                    b.Property<Guid?>("ShopId")
+                    b.Property<Guid>("ShopId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("StockQuantity")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -59,9 +65,13 @@ namespace StellarGlobe.MyShop.Migrations
 
             modelBuilder.Entity("StellarGlobe.MyShop.GraphQl.ModelTypes.Product", b =>
                 {
-                    b.HasOne("StellarGlobe.MyShop.GraphQl.ModelTypes.Shop", null)
+                    b.HasOne("StellarGlobe.MyShop.GraphQl.ModelTypes.Shop", "Shop")
                         .WithMany("Products")
-                        .HasForeignKey("ShopId");
+                        .HasForeignKey("ShopId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Shop");
                 });
 
             modelBuilder.Entity("StellarGlobe.MyShop.GraphQl.ModelTypes.Shop", b =>

@@ -6,6 +6,7 @@ using HotChocolate.Data;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using StellarGlobe.MyShop.GraphQl.ModelTypes;
+using StellarGlobe.MyShop.Models;
 
 namespace StellarGlobe.MyShop.Database
 {
@@ -23,28 +24,28 @@ namespace StellarGlobe.MyShop.Database
         public void Seed()
         {
             _ctx.Database.EnsureCreated();
-            //if (!_ctx.Products.Any())
-            //{
-            //    var filePath = Path.Combine(_env.ContentRootPath, "Database/seedProducts.json");
-            //    var json = File.ReadAllText(filePath);
-            //    var products = JsonSerializer.Deserialize<IEnumerable<Product>>(json);
-            //    if (products != null)
-            //    {
-            //        _ctx.Products.AddRange(products);
-            //        _ctx.SaveChanges();
-            //    }
-            //}
-            //if (!_ctx.Shops.Any())
-            //{
-            //    var filePath = Path.Combine(_env.ContentRootPath, "Database/seedShops.json");
-            //    var json = File.ReadAllText(filePath);
-            //    var shops = JsonSerializer.Deserialize<IEnumerable<Shop>>(json);
-            //    if (shops != null)
-            //    {
-            //        _ctx.Shops.AddRange(shops);
-            //        _ctx.SaveChanges();
-            //    }
-            //}
+            if (!_ctx.Shops.Any())
+            {
+                var filePath = Path.Combine(_env.ContentRootPath, "Database/seedShops.json");
+                var json = File.ReadAllText(filePath);
+                var shops = JsonSerializer.Deserialize<IEnumerable<Shop>>(json);
+                if (shops != null)
+                {
+                    _ctx.Shops.AddRange(shops);
+                    _ctx.SaveChanges();
+                }
+            }
+            if (!_ctx.Products.Any())
+            {
+                var filePath = Path.Combine(_env.ContentRootPath, "Database/seedProducts.json");
+                var json = File.ReadAllText(filePath);
+                var products = JsonSerializer.Deserialize<IEnumerable<Product>>(json);
+                if (products != null)
+                {
+                    _ctx.Products.AddRange(products);
+                    _ctx.SaveChanges();
+                }
+            }
         }
     }
 }

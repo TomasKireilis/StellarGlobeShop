@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using StellarGlobe.MyShop.GraphQl.ModelTypes;
+using StellarGlobe.MyShop.Models;
 
 namespace StellarGlobe.MyShop.Database
 {
@@ -18,7 +19,7 @@ namespace StellarGlobe.MyShop.Database
             //modelBuilder.Entity<Shop>()
             //    .HasMany(p => p.Products)
             //    .WithOne(p => p.Shop!)
-            //    .HasForeignKey(p => p.ProductId);
+            //    .HasForeignKey(p => p.);
 
             //modelBuilder.Entity<Product>()
             //    .HasOne(p => p.Shop)

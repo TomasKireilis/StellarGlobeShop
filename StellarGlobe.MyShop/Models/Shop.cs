@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace StellarGlobe.MyShop.GraphQl.ModelTypes
+namespace StellarGlobe.MyShop.Models
 {
     public class Shop
     {
