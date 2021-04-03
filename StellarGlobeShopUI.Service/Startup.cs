@@ -58,7 +58,7 @@ namespace StellarGlobeShopUI.Service
             });
             app.UseGraphQLVoyager(new VoyagerOptions()
             {
-                GraphQLEndPoint = "/graphql",
+                GraphQLEndPoint = "/graphql-voyager"
             });
         }
 

@@ -6,6 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
+using StellarGlobe.MyShop.Database;
 
 namespace StellarGlobe.MyShop
 {
@@ -13,7 +15,9 @@ namespace StellarGlobe.MyShop
     {
         public static void Main(string[] args)
         {
-            CreateHostBuilder(args).Build().Run();
+            var host = CreateHostBuilder(args).Build();
+            RunSeeding(host);
+            host.Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -22,5 +26,15 @@ namespace StellarGlobe.MyShop
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
+        private static void RunSeeding(IHost host)
+        {
+            var scopeFacory = host.Services.GetService<IServiceScopeFactory>();
+            using (var scope = scopeFacory.CreateScope())
+            {
+                var seeder = scope.ServiceProvider.GetService<MyShopDataSeeder>();
+                seeder?.Seed();
+            }
+        }
     }
 }

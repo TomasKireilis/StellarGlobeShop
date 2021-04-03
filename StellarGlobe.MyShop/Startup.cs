@@ -1,6 +1,7 @@
 using GraphQL.Server.Ui.Voyager;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -8,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using RabbitMQ.Client;
 using RabbitMQLibrary;
 using RabbitMQLibrary.Interfaces;
+using StellarGlobe.MyShop.Database;
 using StellarGlobe.MyShop.GraphQl;
 using StellarGlobe.MyShop.Services.MessageBus.RabbitMQ;
 
@@ -27,7 +29,7 @@ namespace StellarGlobe.MyShop
         {
             //RabbitMQ messageBus
             services.AddSingleton<ConnectionFactory>();
-            services.AddAuthorization();
+
             services.AddSingleton<IRabbitMQClient, RabbitMqClient>(x =>
                 new RabbitMqClient(x.GetService<ConnectionFactory>(),
                     GetRabbitMqConnectionData(),
@@ -35,6 +37,8 @@ namespace StellarGlobe.MyShop
 
             services.AddScoped<IMessageBus, RabbitMQMessageBus>();
 
+            services.AddPooledDbContextFactory<MyShopContext>(opt => opt.UseSqlServer(Configuration["DbContext:ConnectionString"]));
+            services.AddTransient<MyShopDataSeeder>();
             //GraphQL
             GraphQLCServiceConfigurator.SetUpGraphQLDependencies(services);
         }
@@ -50,8 +54,6 @@ namespace StellarGlobe.MyShop
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
-            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

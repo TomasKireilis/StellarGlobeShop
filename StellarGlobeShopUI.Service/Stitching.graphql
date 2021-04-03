@@ -1,0 +1,3 @@
+﻿extend type Query {
+  shop: shop @delegate(schema: "myshop")
+}

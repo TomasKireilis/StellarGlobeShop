@@ -1,15 +1,22 @@
-﻿using HotChocolate;
-using Microsoft.Extensions.Configuration;
+﻿using System;
+using HotChocolate;
 using StellarGlobe.MyShop.GraphQl.ModelTypes;
-using StellarGlobe.MyShop.Services.MessageBus.RabbitMQ;
+using System.Collections.Generic;
+using System.Linq;
+using HotChocolate.Data;
+using HotChocolate.Types;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using StellarGlobe.MyShop.Database;
+using StellarGlobe.MyShop.Models;
 
 namespace StellarGlobe.MyShop.GraphQl.Queries
 {
     public class MyShopQuery
     {
-        public Product GetMyShopData([Service] IMessageBus messageBus, [Service] IConfiguration configuration)
+        [UseDbContext(typeof(MyShopContext))]
+        public Shop GetShop(Guid id, [ScopedService] MyShopContext myShopContext)
         {
-            return new Product();
+            return myShopContext.Shops.FirstOrDefault(x => x.Id == id);
         }
     }
 }
