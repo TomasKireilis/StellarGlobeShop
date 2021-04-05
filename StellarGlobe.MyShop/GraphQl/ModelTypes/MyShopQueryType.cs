@@ -10,6 +10,12 @@ namespace StellarGlobe.MyShop.GraphQl.ModelTypes
             descriptor
                 .Field(f => f.GetShop(default, default))
                 .Type<ShopType>();
+            descriptor
+                .Field(f => f.GetShops(default))
+                .Type<ListType<ShopType>>();
+            descriptor
+                .Field(f => f.GetProductTypes(default))
+                .Type<ListType<ProductTypeType>>();
         }
     }
 }

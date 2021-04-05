@@ -1,3 +1,7 @@
 ﻿extend type Query {
   shop: shop @delegate(schema: "myshop")
+   shops: [shop] @delegate(schema: "myshop")
+     productTypes: [productType] @delegate(schema: "myshop")
 }
+
+
