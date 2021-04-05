@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace BotCustomer.Services.GraphQLClient
 {
     public interface IGraphQlClient
     {
-        List<ShopsData> GetShopsData();
+        Task<ShopsData> GetShopsData();
 
-        (decimal?, bool) GetProductPrice(string shopID, string productID);
+        Task<(decimal?, bool)> GetProductPrice(string shopID, string productID);
     }
 }

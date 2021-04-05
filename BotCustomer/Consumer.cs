@@ -1,20 +1,15 @@
 using System;
 using System.Collections.Generic;
+using System.Net.Sockets;
 using System.Threading;
 using System.Threading.Tasks;
+using BotCustomer.Services;
 using BotCustomer.Services.GraphQLClient;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
 namespace BotCustomer
 {
-    public interface IRequiredProductsStrategy
-    {
-        List<CustomerRequiredProduct> AddStartingProducts();
-
-        CustomerRequiredProduct ReplaceProduct(CustomerRequiredProduct oldProduct);
-    }
-
     public class Consumer : BackgroundService
     {
         protected ShopsData ShopsData = new ShopsData();
@@ -32,20 +27,22 @@ namespace BotCustomer
             _graphQlClient = graphQlClient;
         }
 
-        public virtual bool UpdateShopsData()
+        public virtual async Task<bool> UpdateShopsData()
         {
-            var response = _graphQlClient.GetShopsData();
+            var response = await _graphQlClient.GetShopsData();
             if (response == null)
             {
                 _logger.LogWarning($"{GetType().Name}: Error updating Shops data. GraphQl client Response was null");
                 return false;
             }
+
+            ShopsData = response;
             return true;
         }
 
-        public virtual decimal? GetProductPrice(string shopID, string productID)
+        public virtual async Task<decimal?> GetProductPrice(string shopID, string productID)
         {
-            var response = _graphQlClient.GetProductPrice(shopID, productID);
+            var response = await _graphQlClient.GetProductPrice(shopID, productID);
 
             if (!response.Item2)
             {
@@ -58,7 +55,7 @@ namespace BotCustomer
 
         public virtual bool InitializeNeededProducts()
         {
-            CustomerRequiredProducts = _requiredProductStrategy.AddStartingProducts();
+            CustomerRequiredProducts = _requiredProductStrategy.AddStartingProducts(ShopsData);
             return true;
         }
 
@@ -84,14 +81,19 @@ namespace BotCustomer
                 return false;
             }
 
-            CustomerRequiredProducts[index] = _requiredProductStrategy.ReplaceProduct(oldProduct);
+            CustomerRequiredProducts[index] = _requiredProductStrategy.ReplaceProduct(oldProduct, ShopsData);
             return true;
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
+            await UpdateShopsData();
+            InitializeNeededProducts();
+
             while (!stoppingToken.IsCancellationRequested)
             {
+                _logger.LogInformation($"Running {DateTime.Now}");
+                await Task.Delay(5000);
             }
         }
     }

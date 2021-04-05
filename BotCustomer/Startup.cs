@@ -10,6 +10,8 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using BotCustomer.Services.GraphQLClient;
+using Microsoft.Extensions.Logging;
 
 namespace BotCustomer
 {
@@ -25,6 +27,12 @@ namespace BotCustomer
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<Random>();
+            services.AddTransient<IProductPriceStrategy, DefaultProductPriceStrategy>();
+
+            services.AddTransient<IRequiredProductsStrategy, RequiredProductsStrategy>();
+
+            services.AddTransient<IGraphQlClient, GraphqlClient>();
             services.AddHostedService<Consumer>();
             services.AddControllers();
             services.AddSwaggerGen(c =>

@@ -13,6 +13,6 @@ namespace BotCustomer
         public decimal StartingPrice { get; }
 
         public int ShopsVisited { get; set; }
-        public List<string> ShopsLeftToVisit { get; set; }
+        public List<string> ShopsLeftToVisit { get; set; } = new List<string>();
     }
 }
