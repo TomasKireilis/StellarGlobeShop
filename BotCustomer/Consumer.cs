@@ -1,9 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Net.Sockets;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using BotCustomer.Services;
 using BotCustomer.Services.GraphQLClient;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
@@ -59,30 +58,27 @@ namespace BotCustomer
             return true;
         }
 
-        public virtual bool ReplaceRequiredProduct(CustomerRequiredProduct oldProduct)
+        public virtual CustomerRequiredProduct GetReplacementForRequiredProduct(CustomerRequiredProduct oldProduct)
         {
             if (CustomerRequiredProducts == null)
             {
                 _logger.LogWarning($"{GetType().Name}: _customerRequiredProducts is null while trying to replace its product");
-                return false;
+                return null;
             }
 
             if (CustomerRequiredProducts.Count == 0)
             {
                 _logger.LogWarning($"{GetType().Name}: _customerRequiredProducts is empty while trying to replace its product");
-                return false;
+                return null;
             }
 
-            var index = CustomerRequiredProducts.FindIndex(x => x == oldProduct);
-
-            if (index < 0)
+            if (CustomerRequiredProducts.All(x => x != oldProduct))
             {
-                _logger.LogWarning($"{GetType().Name}: _customerRequiredProducts cannot find index of product that is being replaced");
-                return false;
+                _logger.LogWarning($"{GetType().Name}: _customerRequiredProducts cannot find product that is being replaced");
+                return null;
             }
 
-            CustomerRequiredProducts[index] = _requiredProductStrategy.ReplaceProduct(oldProduct, ShopsData);
-            return true;
+            return _requiredProductStrategy.ReplaceProduct(oldProduct, ShopsData);
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -92,8 +88,55 @@ namespace BotCustomer
 
             while (!stoppingToken.IsCancellationRequested)
             {
-                _logger.LogInformation($"Running {DateTime.Now}");
-                await Task.Delay(5000);
+                await PurchaseRequiredProduct(stoppingToken);
+            }
+        }
+
+        protected async Task PurchaseRequiredProduct(CancellationToken stoppingToken)
+        {
+            if (CustomerRequiredProducts == null)
+            {
+                throw new ArgumentNullException($"{GetType().Name}: CustomerRequiredProducts is null");
+            }
+
+            if (CustomerRequiredProducts.Count == 0)
+            {
+                throw new ArgumentException($"{GetType().Name}: CustomerRequiredProducts is empty");
+            }
+
+            if (CustomerRequiredProducts[0].ShopsLeftToVisit.Count == 0)
+            {
+                var newProduct = GetReplacementForRequiredProduct(CustomerRequiredProducts[0]);
+                CustomerRequiredProducts.Add(newProduct);
+                CustomerRequiredProducts.RemoveAt(0);
+            }
+
+            var requiredProduct = CustomerRequiredProducts[0];
+
+            if (requiredProduct.ShopsLeftToVisit.Count > 0)
+            {
+                var productPrice = await GetProductPrice(requiredProduct.ShopsLeftToVisit.First(), requiredProduct.ProductID);
+
+                if (productPrice == null)
+                {
+                    _logger.LogInformation($"Purchasing product {requiredProduct.ProductID}");
+                    requiredProduct.ShopsLeftToVisit.RemoveAt(0);
+                    requiredProduct.ShopsVisited++;
+                    return;
+                }
+
+                if (productPrice.Value > _priceStrategy.GetCurrentPrice(requiredProduct))
+                {
+                    requiredProduct.ShopsLeftToVisit.RemoveAt(0);
+                    requiredProduct.ShopsVisited++;
+                    return;
+                }
+
+                //TODO
+                _logger.LogInformation("Purchasing product...");
+                var newProduct = GetReplacementForRequiredProduct(CustomerRequiredProducts[0]);
+                CustomerRequiredProducts.Add(newProduct);
+                CustomerRequiredProducts.RemoveAt(0);
             }
         }
     }

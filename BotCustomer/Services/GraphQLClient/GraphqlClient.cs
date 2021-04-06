@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GraphQL;
@@ -23,23 +22,29 @@ namespace BotCustomer.Services.GraphQLClient
 
         public async Task<ShopsData> GetShopsData()
         {
-            _logger.LogInformation("Getting shops data...");
-            var shopsDataQuery = @"d";
+            var shopsDataQuery = @"{  shops { id }  productTypes { name }}";
+
+            _logger.LogInformation("Fetching shops data...");
+
             try
             {
-                var response = await RetryUtils.RetryIfThrown<Exception, GraphQLResponse<ShopsData>>(async () =>
-               {
-                   var client = new GraphQLHttpClient(_clientUrl, new NewtonsoftJsonSerializer());
+                var qraphQLShopsData = await RetryUtils.RetryIfThrown<Exception, GraphQLResponse<GraphQLShopsData>>(async () =>
+                    await SendQueryAsync<GraphQLShopsData>(_clientUrl, shopsDataQuery), 10, 250, 1000);
 
-                   var request = new GraphQLRequest
-                   {
-                       Query = shopsDataQuery
-                   };
+                var shopsData = new ShopsData()
+                {
+                    ProductsIDs = qraphQLShopsData.Data.ProductTypes.Select(x => x.Name).ToList(),
+                    ShopsIDs = qraphQLShopsData.Data.Shops.Select(x => x.Id).ToList()
+                };
+                if (qraphQLShopsData.Errors != null)
+                {
+                    _logger.LogWarning($"Fetched shops data with warnings: {qraphQLShopsData.Errors}");
 
-                   var queryResponse = await client.SendQueryAsync<ShopsData>(request);
-                   return queryResponse;
-               }, 10, 250, 1000);
-                return response?.Data;
+                    return shopsData;
+                }
+
+                _logger.LogInformation("Fetched shops data successfully");
+                return shopsData;
             }
             catch (Exception e)
             {
@@ -50,13 +55,12 @@ namespace BotCustomer.Services.GraphQLClient
 
         public async Task<(decimal?, bool)> GetProductPrice(string shopID, string productID)
         {
+            var productPriceQuery = @"{  shops { id }  productTypes { name }}";
             try
             {
-                var response = await RetryUtils.RetryIfThrown<Exception, (decimal?, bool)>(() =>
-                 {
-                     throw new NotImplementedException();
-                 }, 5, 250, 500);
-                return response;
+                var qraphQLShopsData = await RetryUtils.RetryIfThrown<Exception, GraphQLResponse<GraphQLShopsData>>(async () =>
+                    await SendQueryAsync<GraphQLShopsData>(_clientUrl, productPriceQuery), 10, 250, 1000);
+                return (null, false);
             }
             catch (Exception e)
             {
@@ -64,6 +68,19 @@ namespace BotCustomer.Services.GraphQLClient
                 _logger.LogError(eventID, e, "Error while getting product price");
                 return (null, false);
             }
+        }
+
+        public async Task<GraphQLResponse<T>> SendQueryAsync<T>(string clientUrl, string query)
+        {
+            var client = new GraphQLHttpClient(clientUrl, new NewtonsoftJsonSerializer());
+
+            var request = new GraphQLRequest
+            {
+                Query = query
+            };
+
+            var responseData = await client.SendQueryAsync<T>(request);
+            return responseData;
         }
     }
 }

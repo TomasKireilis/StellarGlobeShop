@@ -3,7 +3,6 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StellarGlobe.MyShop.Database;
 
 namespace StellarGlobe.MyShop.Migrations
@@ -25,8 +24,8 @@ namespace StellarGlobe.MyShop.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<Guid>("ProductTypeId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<decimal>("SellingPrice")
                         .HasColumnType("decimal(5,2)");
@@ -41,6 +40,8 @@ namespace StellarGlobe.MyShop.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("ProductTypeId");
 
                     b.HasIndex("ShopId");
 
@@ -81,11 +82,19 @@ namespace StellarGlobe.MyShop.Migrations
 
             modelBuilder.Entity("StellarGlobe.MyShop.Models.Product", b =>
                 {
+                    b.HasOne("StellarGlobe.MyShop.Models.ProductType", "ProductType")
+                        .WithMany()
+                        .HasForeignKey("ProductTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("StellarGlobe.MyShop.Models.Shop", "Shop")
                         .WithMany("Products")
                         .HasForeignKey("ShopId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("ProductType");
 
                     b.Navigation("Shop");
                 });

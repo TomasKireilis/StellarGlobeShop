@@ -10,8 +10,8 @@ using StellarGlobe.MyShop.Database;
 namespace StellarGlobe.MyShop.Migrations
 {
     [DbContext(typeof(MyShopContext))]
-    [Migration("20210403160759_initial")]
-    partial class initial
+    [Migration("20210406111739_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,17 +21,17 @@ namespace StellarGlobe.MyShop.Migrations
                 .HasAnnotation("ProductVersion", "5.0.4")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("StellarGlobe.MyShop.GraphQl.ModelTypes.Product", b =>
+            modelBuilder.Entity("StellarGlobe.MyShop.Models.Product", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<Guid>("ProductTypeId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<decimal>("SellingPrice")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("decimal(5,2)");
 
                     b.Property<int>("SellingQuantity")
                         .HasColumnType("int");
@@ -44,12 +44,32 @@ namespace StellarGlobe.MyShop.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ProductTypeId");
+
                     b.HasIndex("ShopId");
 
                     b.ToTable("Products");
                 });
 
-            modelBuilder.Entity("StellarGlobe.MyShop.GraphQl.ModelTypes.Shop", b =>
+            modelBuilder.Entity("StellarGlobe.MyShop.Models.ProductType", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name")
+                        .IsUnique()
+                        .HasFilter("[Name] IS NOT NULL");
+
+                    b.ToTable("ProductTypes");
+                });
+
+            modelBuilder.Entity("StellarGlobe.MyShop.Models.Shop", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -63,18 +83,26 @@ namespace StellarGlobe.MyShop.Migrations
                     b.ToTable("Shops");
                 });
 
-            modelBuilder.Entity("StellarGlobe.MyShop.GraphQl.ModelTypes.Product", b =>
+            modelBuilder.Entity("StellarGlobe.MyShop.Models.Product", b =>
                 {
-                    b.HasOne("StellarGlobe.MyShop.GraphQl.ModelTypes.Shop", "Shop")
+                    b.HasOne("StellarGlobe.MyShop.Models.ProductType", "ProductType")
+                        .WithMany()
+                        .HasForeignKey("ProductTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("StellarGlobe.MyShop.Models.Shop", "Shop")
                         .WithMany("Products")
                         .HasForeignKey("ShopId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.Navigation("ProductType");
+
                     b.Navigation("Shop");
                 });
 
-            modelBuilder.Entity("StellarGlobe.MyShop.GraphQl.ModelTypes.Shop", b =>
+            modelBuilder.Entity("StellarGlobe.MyShop.Models.Shop", b =>
                 {
                     b.Navigation("Products");
                 });

@@ -22,6 +22,17 @@ namespace StellarGlobe.MyShop.Database
         public void Seed()
         {
             _ctx.Database.EnsureCreated();
+            if (!_ctx.ProductTypes.Any())
+            {
+                var filePath = Path.Combine(_env.ContentRootPath, "Database/seedProductTypes.json");
+                var json = File.ReadAllText(filePath);
+                var productTypes = JsonSerializer.Deserialize<IEnumerable<ProductType>>(json);
+                if (productTypes != null)
+                {
+                    _ctx.ProductTypes.AddRange(productTypes);
+                    _ctx.SaveChanges();
+                }
+            }
             if (!_ctx.Shops.Any())
             {
                 var filePath = Path.Combine(_env.ContentRootPath, "Database/seedShops.json");

@@ -7,7 +7,8 @@ namespace StellarGlobe.MyShop.Models
     public class Product
     {
         [Key] public Guid Id { get; set; }
-        public string ProductTypeId { get; set; }
+        public Guid ProductTypeId { get; set; }
+        public ProductType ProductType { get; set; }
         public int StockQuantity { get; set; }
         public int SellingQuantity { get; set; }
 

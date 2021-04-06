@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Extensions.Logging;
 
 namespace BotCustomer
@@ -38,7 +39,7 @@ namespace BotCustomer
                     new CustomerRequiredProduct(CalculateStartingPrice(Random))
                     {
                         ProductID = shopsData.ProductsIDs[productIndex],
-                        ShopsLeftToVisit = shopsData.ShopsIDs,
+                        ShopsLeftToVisit = shopsData.ShopsIDs.ToList(),
                     }
 
                     );
@@ -58,7 +59,7 @@ namespace BotCustomer
 
             var productReplacement = new CustomerRequiredProduct(CalculateStartingPrice(Random))
             {
-                ShopsLeftToVisit = shopsData.ShopsIDs,
+                ShopsLeftToVisit = shopsData.ShopsIDs.ToList(),
             };
 
             if (random <= ChanceThatReplacingProductItStaysTheSame)

@@ -11,11 +11,13 @@ namespace StellarGlobe.MyShop.GraphQl.ModelTypes
         protected override void Configure(IObjectTypeDescriptor<Product> descriptor)
         {
             descriptor
-                .Field(f => f.Id)
-                .Type<UuidType>();
+                .Field(f => f.Id).Ignore();
             descriptor
-                .Field(f => f.Name)
-                .Type<StringType>();
+                .Field(f => f.StockQuantity).Ignore();
+            descriptor
+                .Field(f => f.ProductType)
+                .ResolveWith<Resolvers>(r => r.GetProductType(default!, default!))
+                .UseDbContext<MyShopContext>();
             descriptor
                 .Field(f => f.StockQuantity)
                 .Type<IntType>();
@@ -32,6 +34,11 @@ namespace StellarGlobe.MyShop.GraphQl.ModelTypes
             public Shop GetShop(Product product, [ScopedService] MyShopContext myShopContext)
             {
                 return myShopContext.Shops.FirstOrDefault(x => x.Id == product.ShopId);
+            }
+
+            public Models.ProductType GetProductType(Product product, [ScopedService] MyShopContext myShopContext)
+            {
+                return myShopContext.ProductTypes.FirstOrDefault(x => x.Id == product.ProductTypeId);
             }
         }
     }

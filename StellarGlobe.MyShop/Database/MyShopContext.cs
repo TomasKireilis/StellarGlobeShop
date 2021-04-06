@@ -11,7 +11,6 @@ namespace StellarGlobe.MyShop.Database
 
         public DbSet<Shop> Shops { get; set; }
         public DbSet<Product> Products { get; set; }
-
         public DbSet<ProductType> ProductTypes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
