@@ -31,10 +31,10 @@ namespace StellarGlobe.MyShop.GraphQl.ModelTypes
                 .UseDbContext<MyShopContext>();
             descriptor
                 .Field("product")
-                .Argument("id", x => x.Type<UuidType>())
+                .Argument("productType", x => x.Type<StringType>())
                 .UseDbContext<MyShopContext>()
                 .ResolveWith<Resolvers>(p => p.GetProduct(default!, default!, default!))
-                
+
                 .Type<ProductType>();
         }
 
@@ -47,8 +47,8 @@ namespace StellarGlobe.MyShop.GraphQl.ModelTypes
 
             public Product GetProduct(Shop shop, [ScopedService] MyShopContext myShopContext, IResolverContext resolverContext)
             {
-                var productId = resolverContext.ArgumentValue<Guid>("id");
-                return myShopContext.Products.FirstOrDefault(x => x.Id == productId && shop.Id == x.ShopId);
+                var productType = resolverContext.ArgumentValue<string>("productType");
+                return myShopContext.Products.FirstOrDefault(x => x.ProductType.Name == productType && shop.Id == x.ShopId);
             }
         }
     }

@@ -55,12 +55,27 @@ namespace BotCustomer.Services.GraphQLClient
 
         public async Task<(decimal?, bool)> GetProductPrice(string shopID, string productID)
         {
-            var productPriceQuery = @"{  shops { id }  productTypes { name }}";
+            var productPriceQuery = @"
+                query($shopId:Uuid!,$productType: String){shop(id: $shopId) {product(productType: $productType) { sellingPrice}}}";
+            var queryVariables = new
+            {
+                shopId = shopID,
+                productType = productID
+            };
+
             try
             {
-                var qraphQLShopsData = await RetryUtils.RetryIfThrown<Exception, GraphQLResponse<GraphQLShopsData>>(async () =>
-                    await SendQueryAsync<GraphQLShopsData>(_clientUrl, productPriceQuery), 10, 250, 1000);
-                return (null, false);
+                var graphQLProductPriceData = await RetryUtils.RetryIfThrown<Exception, GraphQLResponse<GraphQLProductPriceData>>(async () =>
+                    await SendQueryAsync<GraphQLProductPriceData>(
+                        _clientUrl,
+                        productPriceQuery,
+                        queryVariables
+                        ), 10, 250, 1000);
+                if (graphQLProductPriceData.Errors != null)
+                {
+                    return (graphQLProductPriceData.Data?.Shop?.Product?.SellingPrice, false);
+                }
+                return (graphQLProductPriceData.Data?.Shop?.Product?.SellingPrice, true);
             }
             catch (Exception e)
             {
@@ -70,13 +85,14 @@ namespace BotCustomer.Services.GraphQLClient
             }
         }
 
-        public async Task<GraphQLResponse<T>> SendQueryAsync<T>(string clientUrl, string query)
+        public async Task<GraphQLResponse<T>> SendQueryAsync<T>(string clientUrl, string query, object queryVariables = null)
         {
             var client = new GraphQLHttpClient(clientUrl, new NewtonsoftJsonSerializer());
 
             var request = new GraphQLRequest
             {
-                Query = query
+                Query = query,
+                Variables = queryVariables
             };
 
             var responseData = await client.SendQueryAsync<T>(request);
