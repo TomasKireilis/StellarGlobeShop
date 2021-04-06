@@ -1,6 +1,8 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using HotChocolate;
 using HotChocolate.Data;
+using HotChocolate.Resolvers;
 using HotChocolate.Types;
 using StellarGlobe.MyShop.Database;
 using StellarGlobe.MyShop.Models;
@@ -27,6 +29,13 @@ namespace StellarGlobe.MyShop.GraphQl.ModelTypes
                 .Field(f => f.Products)
                 .ResolveWith<Resolvers>(p => p.GetProducts(default!, default!))
                 .UseDbContext<MyShopContext>();
+            descriptor
+                .Field("product")
+                .Argument("id", x => x.Type<UuidType>())
+                .UseDbContext<MyShopContext>()
+                .ResolveWith<Resolvers>(p => p.GetProduct(default!, default!, default!))
+                
+                .Type<ProductType>();
         }
 
         public class Resolvers
@@ -34,6 +43,12 @@ namespace StellarGlobe.MyShop.GraphQl.ModelTypes
             public IQueryable<Product> GetProducts(Shop shop, [ScopedService] MyShopContext myShopContext)
             {
                 return myShopContext.Products.Where(x => x.ShopId == shop.Id);
+            }
+
+            public Product GetProduct(Shop shop, [ScopedService] MyShopContext myShopContext, IResolverContext resolverContext)
+            {
+                var productId = resolverContext.ArgumentValue<Guid>("id");
+                return myShopContext.Products.FirstOrDefault(x => x.Id == productId && shop.Id == x.ShopId);
             }
         }
     }
