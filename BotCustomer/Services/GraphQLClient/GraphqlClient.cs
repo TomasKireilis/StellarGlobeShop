@@ -6,6 +6,7 @@ using GraphQL.Client.Http;
 using GraphQL.Client.Serializer.Newtonsoft;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 
 namespace BotCustomer.Services.GraphQLClient
 {
@@ -73,6 +74,7 @@ namespace BotCustomer.Services.GraphQLClient
                         ), 10, 250, 1000);
                 if (graphQLProductPriceData.Errors != null)
                 {
+                    _logger.LogWarning(ExceptionEvents.GenerateEventId(LoggerEventType.GraphQLClientQuery), $"Query error: {JsonConvert.SerializeObject(graphQLProductPriceData.Errors)}");
                     return (graphQLProductPriceData.Data?.Shop?.Product?.SellingPrice, false);
                 }
                 return (graphQLProductPriceData.Data?.Shop?.Product?.SellingPrice, true);

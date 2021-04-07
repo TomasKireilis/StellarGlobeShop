@@ -23,7 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StellarGlobe.MyShop", "Stel
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Consumers", "Consumers", "{7CF569CF-BD0B-4F7E-AC4A-9C0E1240FE75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BotCustomer", "BotCustomer\BotCustomer.csproj", "{B87B1336-D44F-4AD1-AF0A-EBDA9ADE90DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BotCustomer", "BotCustomer\BotCustomer.csproj", "{B87B1336-D44F-4AD1-AF0A-EBDA9ADE90DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BotShopNetwork", "BotShopNetwork\BotShopNetwork.csproj", "{1B6077AC-3CEB-42AA-A7A9-FDA0903DF9C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{B87B1336-D44F-4AD1-AF0A-EBDA9ADE90DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B87B1336-D44F-4AD1-AF0A-EBDA9ADE90DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B87B1336-D44F-4AD1-AF0A-EBDA9ADE90DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B6077AC-3CEB-42AA-A7A9-FDA0903DF9C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B6077AC-3CEB-42AA-A7A9-FDA0903DF9C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B6077AC-3CEB-42AA-A7A9-FDA0903DF9C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B6077AC-3CEB-42AA-A7A9-FDA0903DF9C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -58,6 +64,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{9413FA3D-2BE4-405F-A8A1-05F09AB4B7CB} = {3122D671-EDA1-460C-A3A1-3050D5E3EF26}
 		{B87B1336-D44F-4AD1-AF0A-EBDA9ADE90DA} = {7CF569CF-BD0B-4F7E-AC4A-9C0E1240FE75}
+		{1B6077AC-3CEB-42AA-A7A9-FDA0903DF9C7} = {7CF569CF-BD0B-4F7E-AC4A-9C0E1240FE75}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C08502D4-E9DB-41E3-ACB2-FDEA3CC9C139}

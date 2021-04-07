@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace BotCustomer.Services
+namespace BotShopNetwork.Services
 {
     public enum LoggerEventType
     {
