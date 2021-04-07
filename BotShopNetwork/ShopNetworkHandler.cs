@@ -23,7 +23,7 @@ namespace BotShopNetwork
         {
             _logger = logger;
             _graphQlClient = graphQlClient;
-            botShops = JsonConvert.DeserializeObject<List<BotShop>>(configuration["ShopNetwork"]);
+            botShops = configuration.GetSection("ShopNetwork").Get<List<BotShop>>();
         }
 
         //public virtual async Task<bool> UpdateShopsData()
@@ -83,7 +83,7 @@ namespace BotShopNetwork
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            _logger.LogInformation($"Creating {botShops.Count} bot shop/s");
+            _logger.LogInformation($"Creating {botShops.Count} bot shops");
             foreach (var botShop in botShops)
             {
                 _logger.LogInformation($"Created bot shop: {botShop.ShopName}");

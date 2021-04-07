@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BotShopNetwork.Model;
 using BotShopNetwork.Services.GraphQLClient;
 
 namespace BotShopNetwork
@@ -29,10 +30,7 @@ namespace BotShopNetwork
         {
             services.AddHostedService<ShopNetworkHandler>();
             services.AddTransient<IGraphQlClient, GraphqlClient>();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "BotShopNetwork", Version = "v1" });
-            });
+            services.Configure<List<BotShop>>(Configuration.GetSection("ShopNetwork"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,8 +39,6 @@ namespace BotShopNetwork
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "BotShopNetwork v1"));
             }
 
             app.UseHttpsRedirection();
