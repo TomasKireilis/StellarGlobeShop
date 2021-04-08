@@ -42,6 +42,9 @@ namespace StellarGlobe.MyShop
 
             //GraphQL
             GraphQLCServiceConfigurator.SetUpGraphQLDependencies(services);
+
+            //MessageBroker
+            MessageHandlersRegister.RegisterMessageHandlers(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
