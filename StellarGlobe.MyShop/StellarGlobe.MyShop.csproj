@@ -32,6 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="BackgroundServices\MessageBusHanders\Interfaces\" />
     <Folder Include="Migrations\" />
   </ItemGroup>
 </Project>

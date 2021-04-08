@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using StellarGlobe.MyShop.BackgroundServices.DomainHandlers;
+using StellarGlobe.MyShop.BackgroundServices.DomainHandlers.Interfaces;
 using StellarGlobe.MyShop.BackgroundServices.MessageBusHanders;
+using StellarGlobe.MyShop.Services.MessageBus.RabbitMQ;
 
 namespace StellarGlobe.MyShop
 {
@@ -11,7 +11,12 @@ namespace StellarGlobe.MyShop
     {
         public static void RegisterMessageHandlers(IServiceCollection service)
         {
-            service.AddHostedService<MessageBusRequestHandler>();
+            //Domain Handlers
+            service.AddTransient<ProductEventsHandler>();
+            service.AddTransient<IProductPurchaseHandler>(x => x.GetService<ProductEventsHandler>());
+
+            //Message Bus Handlers
+            service.AddHostedService<MessageBusProductPurchaseHandler>();
         }
     }
 }

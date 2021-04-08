@@ -43,7 +43,7 @@ namespace RabbitMQLibrary
             Connection = _connectionFactory.CreateConnection();
             Channel = Connection.CreateModel();
             Channel.ConfirmSelect();
-
+            _consumer = new EventingBasicConsumer(Channel);
             return Connection;
         }
 

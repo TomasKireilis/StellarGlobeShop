@@ -35,7 +35,7 @@ namespace StellarGlobe.MyShop
                     GetRabbitMqConnectionData(),
                     x.GetService<ILogger<RabbitMqClient>>()));
 
-            services.AddScoped<IMessageBus, RabbitMQMessageBus>();
+            services.AddTransient<IMessageBus, RabbitMQMessageBus>();
 
             services.AddPooledDbContextFactory<MyShopContext>(opt => opt.UseSqlServer(Configuration["DbContext:ConnectionString"]));
             services.AddTransient<MyShopDataSeeder>();
