@@ -4,7 +4,7 @@ using Microsoft.Extensions.Logging;
 using RabbitMQ.Client;
 using RabbitMQLibrary.Interfaces;
 
-namespace StellarGlobe.MyShop.Services.MessageBus.RabbitMQ
+namespace StellarGlobe.MyShop.Infrastructure.Services.MessageBus.RabbitMQ
 {
     internal class RabbitMQMessageBus : IMessageBus
     {

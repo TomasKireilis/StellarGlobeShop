@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using StellarGlobe.MyShop.Models;
 
-namespace StellarGlobe.MyShop.Database
+namespace StellarGlobe.MyShop.Infrastructure.Database
 {
     public class MyShopContext : DbContext
     {

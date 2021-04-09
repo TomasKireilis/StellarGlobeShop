@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using RabbitMQ.Client;
 
-namespace StellarGlobe.MyShop.Services.MessageBus.RabbitMQ
+namespace StellarGlobe.MyShop.Infrastructure.Services.MessageBus.RabbitMQ
 {
     public interface IMessageBus
     {

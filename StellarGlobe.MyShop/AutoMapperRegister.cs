@@ -2,11 +2,8 @@
 using AutoMapper.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using StellarGlobe.MyShop.BackgroundServices.DomainHandlers;
-using StellarGlobe.MyShop.BackgroundServices.DomainHandlers.Interfaces;
-using StellarGlobe.MyShop.BackgroundServices.MessageBusHanders;
+using StellarGlobe.MyShop.GraphQl.ModelTypes.Models;
 using StellarGlobe.MyShop.Models;
-using StellarGlobe.MyShop.Services.MessageBus.RabbitMQ;
 
 namespace StellarGlobe.MyShop
 {

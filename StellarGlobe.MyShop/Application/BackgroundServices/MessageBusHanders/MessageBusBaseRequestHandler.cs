@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
+﻿using System.Threading;
 using System.Threading.Tasks;
-using HotChocolate.AspNetCore.Subscriptions.Messages;
 using Microsoft.Extensions.Hosting;
-using Newtonsoft.Json;
-using RabbitMQ.Client.Events;
-using StellarGlobe.MyShop.Services.MessageBus.RabbitMQ;
+using StellarGlobe.MyShop.Infrastructure.Services.MessageBus.RabbitMQ;
 
-namespace StellarGlobe.MyShop.BackgroundServices.MessageBusHanders
+namespace StellarGlobe.MyShop.Application.BackgroundServices.MessageBusHanders
 {
     public abstract class MessageBusBaseRequestHandler<T> : BackgroundService, IMessageBusRequestHandler
     {

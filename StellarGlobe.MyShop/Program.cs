@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using StellarGlobe.MyShop.Database;
+using StellarGlobe.MyShop.Infrastructure.Database;
 
 namespace StellarGlobe.MyShop
 {

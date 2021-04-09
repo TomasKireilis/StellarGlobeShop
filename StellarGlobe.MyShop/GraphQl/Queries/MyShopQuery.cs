@@ -4,7 +4,8 @@ using HotChocolate;
 using System.Linq;
 using AutoMapper;
 using HotChocolate.Data;
-using StellarGlobe.MyShop.Database;
+using StellarGlobe.MyShop.GraphQl.ModelTypes.Models;
+using StellarGlobe.MyShop.Infrastructure.Database;
 using StellarGlobe.MyShop.Models;
 
 namespace StellarGlobe.MyShop.GraphQl.Queries

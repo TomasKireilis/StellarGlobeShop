@@ -5,7 +5,8 @@ using HotChocolate;
 using HotChocolate.Data;
 using HotChocolate.Resolvers;
 using HotChocolate.Types;
-using StellarGlobe.MyShop.Database;
+using StellarGlobe.MyShop.GraphQl.ModelTypes.Models;
+using StellarGlobe.MyShop.Infrastructure.Database;
 using StellarGlobe.MyShop.Models;
 
 namespace StellarGlobe.MyShop.GraphQl.ModelTypes

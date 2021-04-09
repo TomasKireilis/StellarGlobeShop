@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace StellarGlobe.MyShop.Services.MessageBus.Models
+namespace StellarGlobe.MyShop.Infrastructure.Services.MessageBus.Models
 {
     public class BusMessage
     {

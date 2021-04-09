@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace StellarGlobe.MyShop.Migrations
+namespace StellarGlobe.MyShop.Infrastructure.Migrations
 {
     public partial class Initial : Migration
     {

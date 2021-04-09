@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using HotChocolate;
-using System.Linq;
-using HotChocolate.Data;
-using StellarGlobe.MyShop.Database;
-using StellarGlobe.MyShop.Models;
-using StellarGlobe.MyShop.Services.MessageBus.RabbitMQ;
-using ProductType = StellarGlobe.MyShop.Models.ProductType;
+using StellarGlobe.MyShop.Infrastructure.Services.MessageBus.RabbitMQ;
 
-namespace StellarGlobe.MyShop.GraphQl.Queries
+namespace StellarGlobe.MyShop.GraphQl.Mutations
 {
     public class ProductPurchaseMutation
     {

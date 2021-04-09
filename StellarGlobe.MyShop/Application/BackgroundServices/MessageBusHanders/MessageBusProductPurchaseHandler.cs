@@ -1,10 +1,8 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
-using StellarGlobe.MyShop.BackgroundServices.DomainHandlers.Interfaces;
-using StellarGlobe.MyShop.Services.MessageBus.RabbitMQ;
+﻿using Microsoft.Extensions.Logging;
+using StellarGlobe.MyShop.Application.BackgroundServices.DomainHandlers.Interfaces;
+using StellarGlobe.MyShop.Infrastructure.Services.MessageBus.RabbitMQ;
 
-namespace StellarGlobe.MyShop.BackgroundServices.MessageBusHanders
+namespace StellarGlobe.MyShop.Application.BackgroundServices.MessageBusHanders
 {
     public class MessageBusProductPurchaseHandler : MessageBusBaseRequestHandler<ProductPurchase>
     {

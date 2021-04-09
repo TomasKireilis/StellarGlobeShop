@@ -1,9 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using StellarGlobe.MyShop.BackgroundServices.DomainHandlers;
-using StellarGlobe.MyShop.BackgroundServices.DomainHandlers.Interfaces;
-using StellarGlobe.MyShop.BackgroundServices.MessageBusHanders;
-using StellarGlobe.MyShop.Services.MessageBus.RabbitMQ;
+using StellarGlobe.MyShop.Application.BackgroundServices.DomainHandlers;
+using StellarGlobe.MyShop.Application.BackgroundServices.DomainHandlers.Interfaces;
+using StellarGlobe.MyShop.Application.BackgroundServices.MessageBusHanders;
 
 namespace StellarGlobe.MyShop
 {

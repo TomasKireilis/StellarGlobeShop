@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using StellarGlobe.MyShop.GraphQl.ModelTypes;
+using StellarGlobe.MyShop.GraphQl.ModelTypes.QueryTypes;
 
 namespace StellarGlobe.MyShop.GraphQl
 {

@@ -2,7 +2,8 @@
 using AutoMapper;
 using HotChocolate;
 using HotChocolate.Types;
-using StellarGlobe.MyShop.Database;
+using StellarGlobe.MyShop.GraphQl.ModelTypes.Models;
+using StellarGlobe.MyShop.Infrastructure.Database;
 using StellarGlobe.MyShop.Models;
 
 namespace StellarGlobe.MyShop.GraphQl.ModelTypes

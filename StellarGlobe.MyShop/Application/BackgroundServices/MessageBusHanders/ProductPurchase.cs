@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using HotChocolate.AspNetCore.Subscriptions.Messages;
-using Microsoft.Extensions.Hosting;
-using Newtonsoft.Json;
-using RabbitMQ.Client.Events;
 
-namespace StellarGlobe.MyShop.BackgroundServices.MessageBusHanders
+namespace StellarGlobe.MyShop.Application.BackgroundServices.MessageBusHanders
 {
     public class ProductPurchase
     {

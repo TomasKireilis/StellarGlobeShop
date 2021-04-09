@@ -1,6 +1,6 @@
-﻿using StellarGlobe.MyShop.BackgroundServices.MessageBusHanders;
+﻿using StellarGlobe.MyShop.Application.BackgroundServices.MessageBusHanders;
 
-namespace StellarGlobe.MyShop.BackgroundServices.DomainHandlers.Interfaces
+namespace StellarGlobe.MyShop.Application.BackgroundServices.DomainHandlers.Interfaces
 {
     public interface IProductPurchaseHandler
     {

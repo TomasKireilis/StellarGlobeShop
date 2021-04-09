@@ -1,7 +1,6 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 
-namespace StellarGlobe.MyShop.Models
+namespace StellarGlobe.MyShop.GraphQl.ModelTypes.Models
 {
     public class ProductTypeDTO
     {

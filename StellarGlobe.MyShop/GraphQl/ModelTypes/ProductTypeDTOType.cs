@@ -1,4 +1,5 @@
 ﻿using HotChocolate.Types;
+using StellarGlobe.MyShop.GraphQl.ModelTypes.Models;
 using StellarGlobe.MyShop.Models;
 
 namespace StellarGlobe.MyShop.GraphQl.ModelTypes

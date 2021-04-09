@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using HotChocolate.Data;
-using StellarGlobe.MyShop.BackgroundServices.DomainHandlers.Interfaces;
-using StellarGlobe.MyShop.BackgroundServices.MessageBusHanders;
-using StellarGlobe.MyShop.Database;
+using StellarGlobe.MyShop.Application.BackgroundServices.DomainHandlers.Interfaces;
+using StellarGlobe.MyShop.Application.BackgroundServices.MessageBusHanders;
 
-namespace StellarGlobe.MyShop.BackgroundServices.DomainHandlers
+namespace StellarGlobe.MyShop.Application.BackgroundServices.DomainHandlers
 {
     public class ProductEventsHandler : IProductPurchaseHandler
     {

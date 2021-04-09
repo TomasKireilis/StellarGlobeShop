@@ -11,9 +11,9 @@ using Microsoft.Extensions.Logging;
 using RabbitMQ.Client;
 using RabbitMQLibrary;
 using RabbitMQLibrary.Interfaces;
-using StellarGlobe.MyShop.Database;
 using StellarGlobe.MyShop.GraphQl;
-using StellarGlobe.MyShop.Services.MessageBus.RabbitMQ;
+using StellarGlobe.MyShop.Infrastructure.Database;
+using StellarGlobe.MyShop.Infrastructure.Services.MessageBus.RabbitMQ;
 
 namespace StellarGlobe.MyShop
 {
