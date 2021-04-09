@@ -8,14 +8,14 @@ namespace StellarGlobe.MyShop.GraphQl.ModelTypes
         protected override void Configure(IObjectTypeDescriptor<MyShopQuery> descriptor)
         {
             descriptor
-                .Field(f => f.GetShop(default, default))
-                .Type<ShopType>();
+                .Field(f => f.GetShop(default!, default!, default!))
+                .Type<ShopDTOType>();
             descriptor
-                .Field(f => f.GetShops(default))
-                .Type<ListType<ShopType>>();
+                .Field(f => f.GetShops(default!, default!))
+                .Type<ListType<ShopDTOType>>();
             descriptor
-                .Field(f => f.GetProductTypes(default))
-                .Type<ListType<ProductTypeType>>();
+                .Field(f => f.GetProductTypes(default!, default!))
+                .Type<ListType<ProductTypeDTOType>>();
         }
     }
 }

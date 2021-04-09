@@ -1,10 +1,11 @@
 ﻿using HotChocolate.Types;
+using StellarGlobe.MyShop.Models;
 
 namespace StellarGlobe.MyShop.GraphQl.ModelTypes
 {
-    public class ProductTypeType : ObjectType<Models.ProductType>
+    public class ProductTypeDTOType : ObjectType<ProductTypeDTO>
     {
-        protected override void Configure(IObjectTypeDescriptor<Models.ProductType> descriptor)
+        protected override void Configure(IObjectTypeDescriptor<ProductTypeDTO> descriptor)
         {
             descriptor
                 .Field(f => f.Id).Ignore();

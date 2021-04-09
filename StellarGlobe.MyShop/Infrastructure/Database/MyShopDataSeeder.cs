@@ -24,7 +24,7 @@ namespace StellarGlobe.MyShop.Database
             _ctx.Database.EnsureCreated();
             if (!_ctx.ProductTypes.Any())
             {
-                var filePath = Path.Combine(_env.ContentRootPath, "Database/seedProductTypes.json");
+                var filePath = Path.Combine(_env.ContentRootPath, "Setup/seedProductTypes.json");
                 var json = File.ReadAllText(filePath);
                 var productTypes = JsonSerializer.Deserialize<IEnumerable<ProductType>>(json);
                 if (productTypes != null)
@@ -35,7 +35,7 @@ namespace StellarGlobe.MyShop.Database
             }
             if (!_ctx.Shops.Any())
             {
-                var filePath = Path.Combine(_env.ContentRootPath, "Database/seedShops.json");
+                var filePath = Path.Combine(_env.ContentRootPath, "Setup/seedShops.json");
                 var json = File.ReadAllText(filePath);
                 var shops = JsonSerializer.Deserialize<IEnumerable<Shop>>(json);
                 if (shops != null)
@@ -46,7 +46,7 @@ namespace StellarGlobe.MyShop.Database
             }
             if (!_ctx.Products.Any())
             {
-                var filePath = Path.Combine(_env.ContentRootPath, "Database/seedProducts.json");
+                var filePath = Path.Combine(_env.ContentRootPath, "Setup/seedProducts.json");
                 var json = File.ReadAllText(filePath);
                 var products = JsonSerializer.Deserialize<IEnumerable<Product>>(json);
                 if (products != null)

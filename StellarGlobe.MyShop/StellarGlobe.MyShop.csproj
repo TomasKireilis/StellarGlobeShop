@@ -7,10 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="GraphQL.Server.Ui.Voyager" Version="5.0.0" />
     <PackageReference Include="HotChocolate.AspNetCore" Version="11.1.0-preview.86" />
     <PackageReference Include="HotChocolate.Data.EntityFramework" Version="11.0.9" />
     <PackageReference Include="HotChocolate.Stitching" Version="11.0.9" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.4" NoWarn="NU1605" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="5.0.4" NoWarn="NU1605" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.4" />
@@ -32,7 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="BackgroundServices\MessageBusHanders\Interfaces\" />
-    <Folder Include="Migrations\" />
+    <Folder Include="Application\BackgroundServices\MessageBusHanders\Interfaces\" />
+    <Folder Include="Infrastructure\Migrations\" />
   </ItemGroup>
 </Project>

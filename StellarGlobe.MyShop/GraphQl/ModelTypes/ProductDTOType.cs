@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using AutoMapper;
 using HotChocolate;
 using HotChocolate.Types;
 using StellarGlobe.MyShop.Database;
@@ -6,9 +7,9 @@ using StellarGlobe.MyShop.Models;
 
 namespace StellarGlobe.MyShop.GraphQl.ModelTypes
 {
-    public class ProductType : ObjectType<Product>
+    public class ProductDTOType : ObjectType<ProductDTO>
     {
-        protected override void Configure(IObjectTypeDescriptor<Product> descriptor)
+        protected override void Configure(IObjectTypeDescriptor<ProductDTO> descriptor)
         {
             descriptor
                 .Field(f => f.Id).Ignore();
@@ -16,7 +17,7 @@ namespace StellarGlobe.MyShop.GraphQl.ModelTypes
                 .Field(f => f.StockQuantity).Ignore();
             descriptor
                 .Field(f => f.ProductType)
-                .ResolveWith<Resolvers>(r => r.GetProductType(default!, default!))
+                .ResolveWith<Resolvers>(r => r.GetProductType(default!, default!, default!))
                 .UseDbContext<MyShopContext>();
             descriptor
                 .Field(f => f.StockQuantity)
@@ -25,20 +26,20 @@ namespace StellarGlobe.MyShop.GraphQl.ModelTypes
                 .Field(f => f.ShopId).Ignore();
             descriptor
                 .Field(f => f.Shop)
-                .ResolveWith<Resolvers>(r => r.GetShop(default!, default!))
+                .ResolveWith<Resolvers>(r => r.GetShop(default!, default!, default!))
                 .UseDbContext<MyShopContext>();
         }
 
         public class Resolvers
         {
-            public Shop GetShop(Product product, [ScopedService] MyShopContext myShopContext)
+            public ShopDTO GetShop(ProductDTO product, [ScopedService] MyShopContext myShopContext, [Service] IMapper mapper)
             {
-                return myShopContext.Shops.FirstOrDefault(x => x.Id == product.ShopId);
+                return mapper.Map<ShopDTO>(myShopContext.Shops.FirstOrDefault(x => x.Id == product.ShopId));
             }
 
-            public Models.ProductType GetProductType(Product product, [ScopedService] MyShopContext myShopContext)
+            public ProductTypeDTO GetProductType(ProductDTO product, [ScopedService] MyShopContext myShopContext, [Service] IMapper mapper)
             {
-                return myShopContext.ProductTypes.FirstOrDefault(x => x.Id == product.ProductTypeId);
+                return mapper.Map<ProductTypeDTO>(myShopContext.ProductTypes.FirstOrDefault(x => x.Id == product.ProductTypeId));
             }
         }
     }

@@ -1,4 +1,6 @@
+using System.Reflection;
 using GraphQL.Server.Ui.Voyager;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -33,6 +35,9 @@ namespace StellarGlobeShopUI.Service
                     x.GetService<ILogger<RabbitMqClient>>()));
 
             services.AddScoped<IMessageBus, RabbitMQMessageBus>();
+
+            services.AddMediatR(Assembly.GetExecutingAssembly());
+
             //GraphQL
             GraphQLCServiceConfigurator.SetUpGraphQLDependencies(services);
         }

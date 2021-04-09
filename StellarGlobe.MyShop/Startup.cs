@@ -1,4 +1,6 @@
+using System.Reflection;
 using GraphQL.Server.Ui.Voyager;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -39,6 +41,11 @@ namespace StellarGlobe.MyShop
 
             services.AddPooledDbContextFactory<MyShopContext>(opt => opt.UseSqlServer(Configuration["DbContext:ConnectionString"]));
             services.AddTransient<MyShopDataSeeder>();
+
+            services.AddMediatR(Assembly.GetExecutingAssembly());
+
+            //AutoMapper
+            AutoMapperRegister.RegisterAutoMapper(services);
 
             //GraphQL
             GraphQLCServiceConfigurator.SetUpGraphQLDependencies(services);
