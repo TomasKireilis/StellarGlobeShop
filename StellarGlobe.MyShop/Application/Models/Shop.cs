@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace StellarGlobe.MyShop.Models
+namespace StellarGlobe.MyShop.Application.Models
 {
     public class Shop
     {

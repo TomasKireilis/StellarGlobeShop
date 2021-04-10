@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text.Json;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
-using StellarGlobe.MyShop.Models;
+using StellarGlobe.MyShop.Application.Models;
 
 namespace StellarGlobe.MyShop.Infrastructure.Database
 {

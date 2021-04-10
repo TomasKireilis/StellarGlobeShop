@@ -35,6 +35,7 @@
 
   <ItemGroup>
     <Folder Include="Application\BackgroundServices\MessageBusHanders\Interfaces\" />
+    <Folder Include="Application\Commands\" />
     <Folder Include="Infrastructure\Migrations\" />
   </ItemGroup>
 </Project>

@@ -2,8 +2,7 @@
 using AutoMapper.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using StellarGlobe.MyShop.GraphQl.ModelTypes.Models;
-using StellarGlobe.MyShop.Models;
+using StellarGlobe.MyShop.Application.Models;
 
 namespace StellarGlobe.MyShop
 {
@@ -15,12 +14,6 @@ namespace StellarGlobe.MyShop
 
             //Setup maps
 
-            configuration.CreateMap<ProductDto, Product>();
-            configuration.CreateMap<Product, ProductDto>();
-            configuration.CreateMap<Shop, ShopDto>();
-            configuration.CreateMap<ShopDto, Shop>();
-            configuration.CreateMap<ProductType, ProductTypeDto>();
-            configuration.CreateMap<ProductTypeDto, ProductType>();
             //----------------
 
             //Add service

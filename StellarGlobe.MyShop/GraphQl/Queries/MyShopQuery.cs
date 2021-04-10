@@ -4,36 +4,29 @@ using HotChocolate;
 using System.Linq;
 using AutoMapper;
 using HotChocolate.Data;
-using StellarGlobe.MyShop.GraphQl.ModelTypes.Models;
+using StellarGlobe.MyShop.Application.Models;
 using StellarGlobe.MyShop.Infrastructure.Database;
-using StellarGlobe.MyShop.Models;
 
 namespace StellarGlobe.MyShop.GraphQl.Queries
 {
     public class MyShopQuery
     {
         [UseDbContext(typeof(MyShopContext))]
-        public ShopDto GetShop(Guid id, [ScopedService] MyShopContext myShopContext, [Service] IMapper mapper)
+        public Shop GetShop(Guid id, [ScopedService] MyShopContext myShopContext)
         {
-            var shop = myShopContext.Shops.FirstOrDefault(x => x.Id == id);
-            var shopDto = mapper.Map<ShopDto>(shop);
-            return shopDto;
+            return myShopContext.Shops.FirstOrDefault(x => x.Id == id);
         }
 
         [UseDbContext(typeof(MyShopContext))]
-        public List<ShopDto> GetShops([ScopedService] MyShopContext myShopContext, [Service] IMapper mapper)
+        public List<Shop> GetShops([ScopedService] MyShopContext myShopContext)
         {
-            var shops = myShopContext.Shops.ToList();
-            var shopsDto = mapper.Map<List<ShopDto>>(shops);
-            return shopsDto;
+            return myShopContext.Shops.ToList();
         }
 
         [UseDbContext(typeof(MyShopContext))]
-        public List<ProductTypeDto> GetProductTypes([ScopedService] MyShopContext myShopContext, [Service] IMapper mapper)
+        public List<ProductType> GetProductTypes([ScopedService] MyShopContext myShopContext)
         {
-            var productTypes = myShopContext.ProductTypes.ToList();
-            var productTypesDto = mapper.Map<List<ProductTypeDto>>(productTypes);
-            return productTypesDto;
+            return myShopContext.ProductTypes.ToList();
         }
     }
 }

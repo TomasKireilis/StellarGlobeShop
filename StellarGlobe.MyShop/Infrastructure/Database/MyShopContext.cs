@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using StellarGlobe.MyShop.Models;
+using StellarGlobe.MyShop.Application.Models;
 
 namespace StellarGlobe.MyShop.Infrastructure.Database
 {
@@ -15,9 +15,8 @@ namespace StellarGlobe.MyShop.Infrastructure.Database
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ProductType>()
-                .HasIndex(u => u.Name)
-                .IsUnique();
+            modelBuilder.Entity<Product>()
+                .HasKey(x => new { x.ShopId, x.ProductTypeName });
         }
     }
 }

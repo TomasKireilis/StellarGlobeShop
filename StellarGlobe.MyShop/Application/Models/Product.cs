@@ -2,12 +2,11 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace StellarGlobe.MyShop.Models
+namespace StellarGlobe.MyShop.Application.Models
 {
     public class Product
     {
-        [Key] public Guid Id { get; set; }
-        public Guid ProductTypeId { get; set; }
+        public string ProductTypeName { get; set; }
         public ProductType ProductType { get; set; }
         public int StockQuantity { get; set; }
         public int SellingQuantity { get; set; }
