@@ -13,27 +13,27 @@ namespace StellarGlobe.MyShop.GraphQl.Queries
     public class MyShopQuery
     {
         [UseDbContext(typeof(MyShopContext))]
-        public ShopDTO GetShop(Guid id, [ScopedService] MyShopContext myShopContext, [Service] IMapper mapper)
+        public ShopDto GetShop(Guid id, [ScopedService] MyShopContext myShopContext, [Service] IMapper mapper)
         {
             var shop = myShopContext.Shops.FirstOrDefault(x => x.Id == id);
-            var shopDTO = mapper.Map<ShopDTO>(shop);
-            return shopDTO;
+            var shopDto = mapper.Map<ShopDto>(shop);
+            return shopDto;
         }
 
         [UseDbContext(typeof(MyShopContext))]
-        public List<ShopDTO> GetShops([ScopedService] MyShopContext myShopContext, [Service] IMapper mapper)
+        public List<ShopDto> GetShops([ScopedService] MyShopContext myShopContext, [Service] IMapper mapper)
         {
             var shops = myShopContext.Shops.ToList();
-            var shopsDTO = mapper.Map<List<ShopDTO>>(shops);
-            return shopsDTO;
+            var shopsDto = mapper.Map<List<ShopDto>>(shops);
+            return shopsDto;
         }
 
         [UseDbContext(typeof(MyShopContext))]
-        public List<ProductTypeDTO> GetProductTypes([ScopedService] MyShopContext myShopContext, [Service] IMapper mapper)
+        public List<ProductTypeDto> GetProductTypes([ScopedService] MyShopContext myShopContext, [Service] IMapper mapper)
         {
             var productTypes = myShopContext.ProductTypes.ToList();
-            var productTypesDTO = mapper.Map<List<ProductTypeDTO>>(productTypes);
-            return productTypesDTO;
+            var productTypesDto = mapper.Map<List<ProductTypeDto>>(productTypes);
+            return productTypesDto;
         }
     }
 }

@@ -15,12 +15,12 @@ namespace StellarGlobe.MyShop
 
             //Setup maps
 
-            configuration.CreateMap<ProductDTO, Product>();
-            configuration.CreateMap<Product, ProductDTO>();
-            configuration.CreateMap<Shop, ShopDTO>();
-            configuration.CreateMap<ShopDTO, Shop>();
-            configuration.CreateMap<ProductType, ProductTypeDTO>();
-            configuration.CreateMap<ProductTypeDTO, ProductType>();
+            configuration.CreateMap<ProductDto, Product>();
+            configuration.CreateMap<Product, ProductDto>();
+            configuration.CreateMap<Shop, ShopDto>();
+            configuration.CreateMap<ShopDto, Shop>();
+            configuration.CreateMap<ProductType, ProductTypeDto>();
+            configuration.CreateMap<ProductTypeDto, ProductType>();
             //----------------
 
             //Add service

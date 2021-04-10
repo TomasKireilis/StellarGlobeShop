@@ -12,8 +12,8 @@ namespace StellarGlobe.MyShop.GraphQl
 
                 .AddGraphQLServer()
                 .AddQueryType<MyShopQueryType>()
-                .AddType<ShopDTOType>()
-                .AddType<ProductDTOType>();
+                .AddType<ShopDtoType>()
+                .AddType<ProductDtoType>();
         }
     }
 }
