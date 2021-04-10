@@ -1,11 +1,10 @@
 ﻿using System.Linq;
-using AutoMapper;
 using HotChocolate;
 using HotChocolate.Types;
 using StellarGlobe.MyShop.Application.Models;
 using StellarGlobe.MyShop.Infrastructure.Database;
 
-namespace StellarGlobe.MyShop.GraphQl.ModelTypes
+namespace StellarGlobe.MyShop.GraphQl.GraphQLModels.ModelTypes
 {
     public class ProductType : ObjectType<Product>
     {

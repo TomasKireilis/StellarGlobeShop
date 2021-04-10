@@ -1,7 +1,7 @@
 ﻿using HotChocolate.Types;
-using StellarGlobe.MyShop.GraphQl.Queries;
+using StellarGlobe.MyShop.GraphQl.GraphQLModels.ModelTypes;
 
-namespace StellarGlobe.MyShop.GraphQl.ModelTypes.QueryTypes
+namespace StellarGlobe.MyShop.GraphQl.Queries.QueryTypes
 {
     public class MyShopQueryType : ObjectType<MyShopQuery>
     {

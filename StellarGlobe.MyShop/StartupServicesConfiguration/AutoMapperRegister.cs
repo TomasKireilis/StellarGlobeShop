@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using AutoMapper.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using StellarGlobe.MyShop.Application.Models;
+using StellarGlobe.MyShop.Application.BackgroundServices.MessageBusHanders;
+using StellarGlobe.MyShop.GraphQl.GraphQLModels.InputModels;
 
-namespace StellarGlobe.MyShop
+namespace StellarGlobe.MyShop.StartupServicesConfiguration
 {
     public static class AutoMapperRegister
     {

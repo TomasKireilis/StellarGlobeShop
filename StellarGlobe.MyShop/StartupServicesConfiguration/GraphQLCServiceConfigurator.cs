@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using StellarGlobe.MyShop.GraphQl.ModelTypes;
-using StellarGlobe.MyShop.GraphQl.ModelTypes.QueryTypes;
-using StellarGlobe.MyShop.GraphQl.Queries;
+using StellarGlobe.MyShop.GraphQl.GraphQLModels.ModelTypes;
+using StellarGlobe.MyShop.GraphQl.Mutations.MutationTypes;
+using StellarGlobe.MyShop.GraphQl.Queries.QueryTypes;
 
-namespace StellarGlobe.MyShop.GraphQl
+namespace StellarGlobe.MyShop.StartupServicesConfiguration
 {
     public static class GraphQLCServiceConfigurator
     {
@@ -15,7 +15,8 @@ namespace StellarGlobe.MyShop.GraphQl
 
                 .AddQueryType<MyShopQueryType>()
                 .AddType<ShopType>()
-                .AddType<ProductType>();
+                .AddType<ProductType>()
+                .AddMutationType<ProductPurchaseMutationType>();
         }
     }
 }

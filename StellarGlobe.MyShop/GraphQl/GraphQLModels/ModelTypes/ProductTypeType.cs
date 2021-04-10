@@ -1,6 +1,6 @@
 ﻿using HotChocolate.Types;
 
-namespace StellarGlobe.MyShop.GraphQl.ModelTypes
+namespace StellarGlobe.MyShop.GraphQl.GraphQLModels.ModelTypes
 {
     public class ProductTypeType : ObjectType<Application.Models.ProductType>
     {

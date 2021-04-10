@@ -2,6 +2,7 @@
 {
     public enum LoggerEventType
     {
-        MissingMessageBusDomainHandler = 0
+        MissingMessageBusDomainHandler = 0,
+        UnknownPurchaseProductMutationException = 1
     }
 }

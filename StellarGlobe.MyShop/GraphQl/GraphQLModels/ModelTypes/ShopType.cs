@@ -1,14 +1,11 @@
-﻿using System;
-using System.Linq;
-using AutoMapper;
+﻿using System.Linq;
 using HotChocolate;
-using HotChocolate.Data;
 using HotChocolate.Resolvers;
 using HotChocolate.Types;
 using StellarGlobe.MyShop.Application.Models;
 using StellarGlobe.MyShop.Infrastructure.Database;
 
-namespace StellarGlobe.MyShop.GraphQl.ModelTypes
+namespace StellarGlobe.MyShop.GraphQl.GraphQLModels.ModelTypes
 {
     public class ShopType : ObjectType<Shop>
     {

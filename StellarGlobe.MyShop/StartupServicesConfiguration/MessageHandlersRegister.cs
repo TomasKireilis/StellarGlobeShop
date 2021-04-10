@@ -1,10 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using StellarGlobe.MyShop.Application.BackgroundServices.DomainHandlers;
 using StellarGlobe.MyShop.Application.BackgroundServices.DomainHandlers.Interfaces;
 using StellarGlobe.MyShop.Application.BackgroundServices.MessageBusHanders;
 
-namespace StellarGlobe.MyShop
+namespace StellarGlobe.MyShop.StartupServicesConfiguration
 {
     public static class MessageHandlersRegister
     {

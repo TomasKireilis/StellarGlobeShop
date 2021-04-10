@@ -14,6 +14,7 @@ using RabbitMQLibrary.Interfaces;
 using StellarGlobe.MyShop.GraphQl;
 using StellarGlobe.MyShop.Infrastructure.Database;
 using StellarGlobe.MyShop.Infrastructure.Services.MessageBus.RabbitMQ;
+using StellarGlobe.MyShop.StartupServicesConfiguration;
 
 namespace StellarGlobe.MyShop
 {
