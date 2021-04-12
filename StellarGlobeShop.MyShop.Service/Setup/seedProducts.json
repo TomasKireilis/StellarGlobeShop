@@ -1,0 +1,16 @@
+[
+  {
+    "StockQuantity": 5,
+
+    "ShopId": "99d0dace-2cac-48df-b8a0-d8c7f78f9fca",
+    "ProductTypeName": "Berries",
+    "SellingPrice": 1.45
+  },
+  {
+    "StockQuantity": 2,
+
+    "ShopId": "99d0dace-2cac-48df-b8a0-d8c7f78f9fca",
+    "ProductTypeName": "Flour",
+    "SellingPrice": 3.45
+  }
+]
