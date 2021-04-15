@@ -2,18 +2,22 @@
 using HotChocolate.Types;
 using MyShop.API.Service.ProductTypes;
 using MyShop.API.Service.Shops;
+using MyShop.Application.Products.Queries;
+using MyShop.Application.ProductTypes.Queries;
+using MyShop.Application.Shops.Queries;
+using MyShop.Persistance.Database;
 
 namespace MyShop.API.Service.Products
 {
-    public class ProductType : ObjectType<Product>
+    public class ProductType : ObjectType<ProductModel>
     {
-        protected override void Configure(IObjectTypeDescriptor<Product> descriptor)
+        protected override void Configure(IObjectTypeDescriptor<ProductModel> descriptor)
         {
             descriptor
                   .Field(f => f.StockQuantity).Ignore();
 
             descriptor
-                .Field(f => f.ProductType)
+                .Field(f => f.ProductTypeModel)
                 .ResolveWith<Resolvers>(r => r.GetProductType(default!, default!))
                 .UseDbContext<MyShopContext>()
                 .Type<ProductTypeType>();
@@ -31,9 +35,6 @@ namespace MyShop.API.Service.Products
                 .Type<StringType>();
 
             descriptor
-                .Field(f => f.ShopId).Ignore();
-
-            descriptor
                 .Field(f => f.Shop)
                 .ResolveWith<Resolvers>(r => r.GetShop(default!, default!))
                 .UseDbContext<MyShopContext>()
@@ -42,13 +43,13 @@ namespace MyShop.API.Service.Products
 
         public class Resolvers
         {
-            public Shop GetShop(Product product, [ScopedService] MyShopContext myShopContext)
+            public ShopModel GetShop(ProductModel product, [ScopedService] MyShopContext myShopContext)
             {
                 return myShopContext.Shops.FirstOrDefault(x => x.Id == product.ShopId);
             }
 
-            public Application.Application.Models.ProductType GetProductType(
-                Product product,
+            public ProductTypeModel GetProductType(
+                ProductModel product,
                 [ScopedService] MyShopContext myShopContext)
             {
                 return myShopContext.ProductTypes.FirstOrDefault(x => x.Name == product.ProductTypeName);

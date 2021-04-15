@@ -9,14 +9,14 @@ namespace MyShop.API.Service.Common.GraphQl.QueryTypes
         protected override void Configure(IObjectTypeDescriptor<MyShopQuery> descriptor)
         {
             descriptor
-                .Field(f => f.GetShop(default!, default!))
+                .Field(f => f.GetShop(default!, default!, default!))
                 .Type<ShopType>();
             descriptor
-                .Field(f => f.GetShops(default!))
+                .Field(f => f.GetShops(default!, default!))
                 .Type<ListType<ShopType>>();
-            descriptor
-                .Field(f => f.GetProductTypes(default!))
-                .Type<ListType<ProductTypeType>>();
+            //descriptor
+            //    .Field(f => f.GetProductTypes(default!))
+            //    .Type<ListType<ProductTypeType>>();
         }
     }
 }

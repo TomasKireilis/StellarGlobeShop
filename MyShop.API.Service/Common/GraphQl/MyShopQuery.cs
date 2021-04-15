@@ -1,29 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
+using AutoMapper;
 using HotChocolate;
 using HotChocolate.Data;
 using MyShop.API.Service.Products;
+using MyShop.API.Service.Shops;
+using MyShop.Application.Products.Queries;
 
 namespace MyShop.API.Service.Common.GraphQl
 {
     public class MyShopQuery
     {
-        [UseDbContext(typeof(MyShopContext))]
-        public Shop GetShop(Guid id, [ScopedService] MyShopContext myShopContext)
+        public ShopType GetShop(Guid id, [ScopedService] IGetShopQuery query, [ScopedService] IMapper mapper)
         {
-            return myShopContext.Shops.FirstOrDefault(x => x.Id == id);
+            var shopModel = query.Execute(id);
+
+            return mapper.Map<ShopType>(shopModel);
         }
 
-        [UseDbContext(typeof(MyShopContext))]
-        public List<Shop> GetShops([ScopedService] MyShopContext myShopContext)
+        public List<ShopType> GetShops([ScopedService] IGetShopsQuery query, [ScopedService] IMapper mapper)
         {
-            return myShopContext.Shops.ToList();
+            var shopModel = query.Execute();
+            return mapper.Map<List<ShopType>>(shopModel);
         }
 
-        [UseDbContext(typeof(MyShopContext))]
-        public List<ProductType> GetProductTypes([ScopedService] MyShopContext myShopContext)
-        {
-            return myShopContext.ProductTypes.ToList();
-        }
+        //public List<ProductType> GetProductTypes([ScopedService] MyShopContext myShopContext)
+        //{
+        //    return myShopContext.ProductTypes.ToList();
+        //}
     }
 }

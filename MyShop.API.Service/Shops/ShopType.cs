@@ -8,9 +8,9 @@ using MyShop.Persistance.Database;
 
 namespace MyShop.API.Service.Shops
 {
-    public class ShopType : ObjectType<ShopModel>
+    public class ShopType : ObjectType<ProductModel>
     {
-        protected override void Configure(IObjectTypeDescriptor<ShopModel> descriptor)
+        protected override void Configure(IObjectTypeDescriptor<ProductModel> descriptor)
         {
             descriptor
                 .Field(f => f.Id)
@@ -33,12 +33,12 @@ namespace MyShop.API.Service.Shops
 
         public class Resolvers
         {
-            public IQueryable<Product> GetProducts(ShopModel shop, [ScopedService] MyShopContext myShopContext)
+            public IQueryable<Product> GetProducts(ProductModel shop, [ScopedService] MyShopContext myShopContext)
             {
                 return myShopContext.Products.Where(x => x.ShopId == shop.Id);
             }
 
-            public Product GetProduct(ShopModel shop, [ScopedService] MyShopContext myShopContext, IResolverContext resolverContext)
+            public Product GetProduct(ProductModel shop, [ScopedService] MyShopContext myShopContext, IResolverContext resolverContext)
             {
                 var productType = resolverContext.ArgumentValue<string>("productType");
                 return myShopContext.Products.FirstOrDefault(x => x.ProductType.Name == productType && shop.Id == x.ShopId);

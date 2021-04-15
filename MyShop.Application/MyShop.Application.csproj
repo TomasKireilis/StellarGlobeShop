@@ -9,9 +9,7 @@
     <Folder Include="Common\" />
     <Folder Include="Products\Commands\" />
     <Folder Include="ProductTypes\Commands\" />
-    <Folder Include="ProductTypes\Queries\" />
     <Folder Include="Shops\Commands\" />
-    <Folder Include="Shops\Queries\" />
   </ItemGroup>
 
   <ItemGroup>

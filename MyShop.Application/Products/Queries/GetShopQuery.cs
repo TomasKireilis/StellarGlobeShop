@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using MyShop.Application.Shops.Queries;
 using MyShop.Domain.Shops;
 
 namespace MyShop.Application.Products.Queries
 {
-    public class GetShopsQuery : IGetShopsQuery
+    public class GetShopQuery : IGetShopQuery
     {
-        public List<ProductModel> Execute()
+        public ShopModel Execute(Guid shopId)
         {
-            return new List<ProductModel>();
+            return new ShopModel();
         }
     };
 }

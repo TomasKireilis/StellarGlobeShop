@@ -1,10 +1,11 @@
 ﻿using HotChocolate.Types;
+using MyShop.Persistance.ProductTypes;
 
 namespace MyShop.API.Service.ProductTypes
 {
-    public class ProductTypeType : ObjectType<Application.Application.Models.ProductType>
+    public class ProductTypeType : ObjectType<ProductType>
     {
-        protected override void Configure(IObjectTypeDescriptor<Application.Application.Models.ProductType> descriptor)
+        protected override void Configure(IObjectTypeDescriptor<ProductType> descriptor)
         {
             descriptor
                 .Field(f => f.Name)
