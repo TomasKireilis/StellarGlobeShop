@@ -31,6 +31,13 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MyShop.Application\MyShop.Application.csproj" />
+    <ProjectReference Include="..\MyShop.Persistance\MyShop.Persistance.csproj" />
     <ProjectReference Include="..\RabbitMQLibrary\RabbitMQLibrary.csproj" />
+    <ProjectReference Include="..\StellarGlobeShop.Gateway.Service\StellarGlobeShop.Gateway.Service.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Commands\" />
+    <Folder Include="Products\MutationTypes\" />
   </ItemGroup>
 </Project>

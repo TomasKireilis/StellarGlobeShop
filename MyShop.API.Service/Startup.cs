@@ -8,7 +8,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using MyShop.API.Service.StartupServicesConfiguration;
+using MyShop.API.Service.Common.StartupServicesConfiguration;
+using MyShop.Persistance.Database;
 using RabbitMQ.Client;
 using RabbitMQLibrary;
 using RabbitMQLibrary.Interfaces;
@@ -35,7 +36,7 @@ namespace MyShop.API.Service
                     GetRabbitMqConnectionData(),
                     x.GetService<ILogger<RabbitMqClient>>()));
 
-            services.AddTransient<IMessageBus, RabbitMQMessageBus>();
+            //services.AddTransient<IMessageBus, RabbitMQMessageBus>();
 
             services.AddPooledDbContextFactory<MyShopContext>(opt => opt.UseSqlServer(Configuration["DbContext:ConnectionString"]));
             services.AddTransient<MyShopDataSeeder>();

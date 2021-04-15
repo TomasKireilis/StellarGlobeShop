@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -6,12 +6,20 @@
 
   <ItemGroup>
     <Folder Include="Application\BackgroundServices\MessageBusHanders\Interfaces\" />
+    <Folder Include="Common\" />
+    <Folder Include="Products\Commands\" />
+    <Folder Include="ProductTypes\Commands\" />
+    <Folder Include="ProductTypes\Queries\" />
+    <Folder Include="Shops\Commands\" />
+    <Folder Include="Shops\Queries\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Microsoft.Extensions.Hosting.Abstractions">
-      <HintPath>..\..\..\..\..\..\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref\5.0.0\ref\net5.0\Microsoft.Extensions.Hosting.Abstractions.dll</HintPath>
-    </Reference>
+
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MyShop.Domain\MyShop.Domain.csproj" />
+  </ItemGroup>
 </Project>

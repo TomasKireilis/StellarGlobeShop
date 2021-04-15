@@ -39,7 +39,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyShop.Domain", "MyShop.Dom
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyShop.Infrastructure", "MyShop.Infrastructure\MyShop.Infrastructure.csproj", "{E9DF41FC-3C8B-493C-A192-77393BEC3A9D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyShopPersistance", "MyShopPersistance\MyShopPersistance.csproj", "{01E39B2E-E225-4DB0-A119-7C3130E1615A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyShop.Persistance", "MyShop.Persistance\MyShop.Persistance.csproj", "{01E39B2E-E225-4DB0-A119-7C3130E1615A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyShop.Common", "MyShop.Common\MyShop.Common.csproj", "{511E0423-67CF-4B16-926E-CD3F45246C54}"
 EndProject
