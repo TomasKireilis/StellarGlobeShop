@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using MyShop.API.Service.GraphQl.GraphQLModels.ModelTypes;
+using MyShop.API.Service.GraphQl.Models.ModelTypes;
 using MyShop.API.Service.GraphQl.Mutations.MutationTypes;
 using MyShop.API.Service.GraphQl.Queries.QueryTypes;
 

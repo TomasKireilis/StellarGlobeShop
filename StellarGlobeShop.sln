@@ -31,17 +31,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GraphQLGateway", "GraphQLGa
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "HelperClasses", "HelperClasses", "{4ED77918-4A08-4E71-B52A-A6A20EA89301}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MyShop.Service", "MyShop.Service", "{0D25B332-67E1-410B-A35A-669EBE42E42F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MyShop", "MyShop", "{0D25B332-67E1-410B-A35A-669EBE42E42F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyShop.Application", "MyShop.Application\MyShop.Application.csproj", "{F61331A3-F702-4BD9-97F1-22E080845E3E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyShop.Application", "MyShop.Application\MyShop.Application.csproj", "{F61331A3-F702-4BD9-97F1-22E080845E3E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyShop.Domain", "MyShop.Domain\MyShop.Domain.csproj", "{7EBDCA7E-854A-412B-9EE8-2207DAF2BDBD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyShop.Domain", "MyShop.Domain\MyShop.Domain.csproj", "{7EBDCA7E-854A-412B-9EE8-2207DAF2BDBD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyShop.Infrastructure", "MyShop.Infrastructure\MyShop.Infrastructure.csproj", "{E9DF41FC-3C8B-493C-A192-77393BEC3A9D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyShop.Infrastructure", "MyShop.Infrastructure\MyShop.Infrastructure.csproj", "{E9DF41FC-3C8B-493C-A192-77393BEC3A9D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyShopPersistance", "MyShopPersistance\MyShopPersistance.csproj", "{01E39B2E-E225-4DB0-A119-7C3130E1615A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyShopPersistance", "MyShopPersistance\MyShopPersistance.csproj", "{01E39B2E-E225-4DB0-A119-7C3130E1615A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyShop.Common", "MyShop.Common\MyShop.Common.csproj", "{511E0423-67CF-4B16-926E-CD3F45246C54}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyShop.Common", "MyShop.Common\MyShop.Common.csproj", "{511E0423-67CF-4B16-926E-CD3F45246C54}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

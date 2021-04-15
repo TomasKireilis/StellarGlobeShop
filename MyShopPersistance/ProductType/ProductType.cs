@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MyShop.Application.Application.Models
+namespace MyShopPersistance.ProductType
 {
     public class ProductType
     {

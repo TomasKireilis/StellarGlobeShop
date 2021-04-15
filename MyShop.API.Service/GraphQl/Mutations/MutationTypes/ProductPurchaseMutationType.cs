@@ -1,5 +1,5 @@
 ﻿using HotChocolate.Types;
-using MyShop.API.Service.GraphQl.GraphQLModels.InputModelTypes;
+using MyShop.API.Service.GraphQl.Models.InputModelTypes;
 
 namespace MyShop.API.Service.GraphQl.Mutations.MutationTypes
 {

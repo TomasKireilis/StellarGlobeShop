@@ -1,9 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
-using MyShop.Domain.Common;
-using MyShop.Domain.Shops;
+using MyShopPersistance.Common;
+using MyShopPersistance.Shops;
 
-namespace MyShop.Domain.Product
+namespace MyShopPersistance.Product
 {
     public class Product : IEntity
     {

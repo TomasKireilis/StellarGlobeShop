@@ -1,5 +1,5 @@
 ﻿using HotChocolate.Types;
-using MyShop.API.Service.GraphQl.GraphQLModels.ModelTypes;
+using MyShop.API.Service.GraphQl.Models.ModelTypes;
 
 namespace MyShop.API.Service.GraphQl.Queries.QueryTypes
 {

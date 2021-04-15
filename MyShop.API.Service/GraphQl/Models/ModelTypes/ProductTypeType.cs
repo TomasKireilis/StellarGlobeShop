@@ -1,6 +1,6 @@
 ﻿using HotChocolate.Types;
 
-namespace MyShop.API.Service.GraphQl.GraphQLModels.ModelTypes
+namespace MyShop.API.Service.GraphQl.Models.ModelTypes
 {
     public class ProductTypeType : ObjectType<Application.Application.Models.ProductType>
     {

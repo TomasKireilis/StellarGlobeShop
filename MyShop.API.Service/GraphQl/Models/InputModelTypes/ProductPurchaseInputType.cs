@@ -1,7 +1,7 @@
 ﻿using HotChocolate.Types;
 using MyShop.Application.Application.BackgroundServices.MessageBusHanders;
 
-namespace MyShop.API.Service.GraphQl.GraphQLModels.InputModelTypes
+namespace MyShop.API.Service.GraphQl.Models.InputModelTypes
 {
     public class ProductPurchaseInputType : ObjectType<ProductPurchase>
     {
