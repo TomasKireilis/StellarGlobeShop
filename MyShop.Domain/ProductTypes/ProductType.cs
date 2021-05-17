@@ -4,35 +4,28 @@ using MyShop.Domain.Products;
 
 namespace MyShop.Domain.ProductTypes
 {
-    public class ProductType : IEntity
+    public class ProductType : ValueObject<ProductType>
     {
-        public ProductType(Guid id, string name)
+        public ProductType(string name)
         {
             Name = name;
-            Id = id;
         }
 
         public string Name { get; }
-        public Guid Id { get; }
 
-        public override bool Equals(object? obj)
+        protected override bool EqualsCore(ProductType obj)
         {
-            var otherProductType = obj as ProductType;
-            if (otherProductType == null)
+            if (Name != obj.Name)
             {
                 return false;
             }
-            return Equals(otherProductType);
+
+            return true;
         }
 
-        public override int GetHashCode()
+        protected override int GetHashCodeCore()
         {
-            return HashCode.Combine(Id, Name);
-        }
-
-        protected bool Equals(ProductType other)
-        {
-            return Id.Equals(other.Id) && Name == other.Name;
+            return HashCode.Combine(Name);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using MyShop.Persistance.Products;
+﻿using Microsoft.EntityFrameworkCore;
+using MyShop.Persistance.Products;
 using MyShop.Persistance.ProductTypes;
 using MyShop.Persistance.Shops;
 

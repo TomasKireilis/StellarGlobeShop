@@ -1,4 +1,5 @@
-﻿using HotChocolate;
+﻿using System.Linq;
+using HotChocolate;
 using HotChocolate.Types;
 using MyShop.API.Service.ProductTypes;
 using MyShop.API.Service.Shops;

@@ -1,6 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.Json;
+using Microsoft.EntityFrameworkCore;
+using MyShop.Persistance.Products;
+using MyShop.Persistance.ProductTypes;
+using MyShop.Persistance.Shops;
 
 namespace MyShop.Persistance.Database
 {
