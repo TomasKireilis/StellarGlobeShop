@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MyShop.Domain.Common
+﻿namespace MyShop.Domain.Common
 {
     public abstract class ValueObject<T> where T : ValueObject<T>
     {

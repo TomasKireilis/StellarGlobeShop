@@ -38,5 +38,6 @@
 
   <ItemGroup>
     <Folder Include="Commands\" />
+    <Folder Include="Common\GraphQl\" />
   </ItemGroup>
 </Project>

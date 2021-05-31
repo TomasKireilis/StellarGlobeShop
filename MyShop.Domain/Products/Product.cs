@@ -2,7 +2,6 @@
 using MyShop.Domain.Common;
 using MyShop.Domain.Common.PositiveNumber;
 using MyShop.Domain.ProductTypes;
-using MyShop.Domain.Shops;
 
 namespace MyShop.Domain.Products
 {

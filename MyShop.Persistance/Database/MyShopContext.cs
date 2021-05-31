@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MyShop.Persistance.Products;
-using MyShop.Persistance.ProductTypes;
-using MyShop.Persistance.Shops;
+using MyShop.Persistance.ProductSlots;
 
 namespace MyShop.Persistance.Database
 {
@@ -11,14 +10,13 @@ namespace MyShop.Persistance.Database
         {
         }
 
-        public DbSet<Shop> Shops { get; set; }
         public DbSet<Product> Products { get; set; }
-        public DbSet<ProductType> ProductTypes { get; set; }
+        public DbSet<ProductSlot> ProductTypes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Product>()
-                .HasKey(x => new { x.ShopId, x.ProductTypeName });
+            //modelBuilder.Entity<Product>()
+            //    .HasKey(x => new { x.ShopId, x.ProductTypeName });
         }
     }
 }

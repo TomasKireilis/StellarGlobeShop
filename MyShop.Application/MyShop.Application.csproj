@@ -7,8 +7,8 @@
   <ItemGroup>
     <Folder Include="Application\BackgroundServices\MessageBusHanders\Interfaces\" />
     <Folder Include="Common\" />
-    <Folder Include="ProductSlot\Commands\" />
-    <Folder Include="ProductTypes\Commands\" />
+    <Folder Include="ProductSlots\Commands\" />
+    <Folder Include="Products\Commands\" />
   </ItemGroup>
 
   <ItemGroup>

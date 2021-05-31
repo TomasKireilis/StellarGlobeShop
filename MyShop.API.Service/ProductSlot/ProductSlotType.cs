@@ -1,9 +1,9 @@
 ﻿using HotChocolate.Types;
-using MyShop.Application.Products.Queries;
+using MyShop.Application.ProductSlots.Queries;
 
 namespace MyShop.API.Service.ProductSlot
 {
-    public class ProductType : ObjectType<ProductSlotModel>
+    public class ProductSlotType : ObjectType<ProductSlotModel>
     {
         protected override void Configure(IObjectTypeDescriptor<ProductSlotModel> descriptor)
         {

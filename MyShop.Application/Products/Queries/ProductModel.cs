@@ -1,4 +1,4 @@
-﻿namespace MyShop.Application.ProductTypes.Queries
+﻿namespace MyShop.Application.Products.Queries
 {
     public class ProductModel
     {

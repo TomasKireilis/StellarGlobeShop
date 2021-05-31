@@ -1,8 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using MyShop.API.Service.Common.GraphQl.QueryTypes;
-using MyShop.API.Service.Products.Mutations.Types;
+﻿using HotChocolate.Types;
+using Microsoft.Extensions.DependencyInjection;
+using MyShop.API.Service.Product;
 using MyShop.API.Service.ProductSlot;
-using MyShop.API.Service.Shops;
 
 namespace MyShop.API.Service.Common.StartupServicesConfiguration
 {
@@ -13,11 +12,20 @@ namespace MyShop.API.Service.Common.StartupServicesConfiguration
             services
 
                 .AddGraphQLServer()
+                .AddQueryType<MyShopQuery>();
+            //.AddType<ProductSlotType>()
+            //.AddType<ProductType>();
+        }
+    }
 
-                .AddQueryType<MyShopQueryType>()
-                .AddType<ShopType>()
-                .AddType<ProductType>()
-                .AddMutationType<ProductPurchaseMutationType>();
+    public class MyShopQuery : ObjectType
+    {
+        protected override void Configure(IObjectTypeDescriptor descriptor)
+        {
+            descriptor
+                .Field("ProductSlot").Resolve(x => new ProductSlotType());
+            descriptor
+                .Field("Product").Resolve(x => new ProductType());
         }
     }
 }

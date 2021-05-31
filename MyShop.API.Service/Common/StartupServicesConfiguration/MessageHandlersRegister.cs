@@ -14,7 +14,7 @@ namespace MyShop.API.Service.Common.StartupServicesConfiguration
             service.AddTransient<IProductPurchaseHandler>(x => x.GetService<ProductEventsHandler>());
 
             //Message Bus Handlers
-            service.AddHostedService<MessageBusProductPurchaseHandler>();
+            //service.AddHostedService<MessageBusProductPurchaseHandler>();
         }
     }
 }

@@ -17,7 +17,7 @@ namespace StellarGlobeShop.Gateway.Service
                 .AddGraphQLServer()
                 .AddDiagnosticEventListener(x =>
                     new DiagnosticObserver(x.GetApplicationService<ILogger<DiagnosticObserver>>()))
-                //.AddQueryType<QueryType>()
+                .AddQueryType<QueryType>()
                 .AddRemoteSchema(MyShop);
             //.AddTypeExtensionsFromFile("./Stitching.graphql");
         }

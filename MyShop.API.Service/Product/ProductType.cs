@@ -1,5 +1,5 @@
 ﻿using HotChocolate.Types;
-using MyShop.Application.ProductTypes.Queries;
+using MyShop.Application.Products.Queries;
 
 namespace MyShop.API.Service.Product
 {

@@ -1,8 +1,6 @@
 ﻿using System;
-using MyShop.Domain.ProductTypes;
-using MyShop.Domain.Shops;
 
-namespace MyShop.Application.Products.Queries
+namespace MyShop.Application.ProductSlots.Queries
 {
     public class ProductSlotModel
     {

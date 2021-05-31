@@ -1,6 +1,5 @@
 ﻿using System;
 using MyShop.Domain.Common;
-using MyShop.Domain.Products;
 
 namespace MyShop.Domain.ProductTypes
 {
