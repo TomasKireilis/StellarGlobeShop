@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using AutoMapper;
 using HotChocolate;
 using HotChocolate.Data;
-using MyShop.API.Service.Products;
 using MyShop.API.Service.Shops;
 using MyShop.Application.Products.Queries;
 

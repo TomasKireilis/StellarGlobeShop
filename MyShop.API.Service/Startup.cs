@@ -36,8 +36,6 @@ namespace MyShop.API.Service
                     GetRabbitMqConnectionData(),
                     x.GetService<ILogger<RabbitMqClient>>()));
 
-            //services.AddTransient<IMessageBus, RabbitMQMessageBus>();
-
             services.AddPooledDbContextFactory<MyShopContext>(opt => opt.UseSqlServer(Configuration["DbContext:ConnectionString"]));
             services.AddTransient<MyShopDataSeeder>();
 

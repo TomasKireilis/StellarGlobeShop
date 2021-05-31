@@ -1,5 +1,4 @@
 ﻿using HotChocolate.Types;
-using MyShop.API.Service.ProductTypes;
 using MyShop.API.Service.Shops;
 
 namespace MyShop.API.Service.Common.GraphQl.QueryTypes

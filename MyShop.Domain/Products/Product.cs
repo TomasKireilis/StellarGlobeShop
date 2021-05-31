@@ -12,8 +12,9 @@ namespace MyShop.Domain.Products
         private PositiveInteger _sellingQuantity;
         private PositiveDecimal _sellingPrice;
 
-        public Product(ProductType productType)
+        public Product(Guid id, ProductType productType)
         {
+            Id = id;
             ProductType = productType;
         }
 

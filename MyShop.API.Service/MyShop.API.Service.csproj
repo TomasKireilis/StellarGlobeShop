@@ -38,6 +38,5 @@
 
   <ItemGroup>
     <Folder Include="Commands\" />
-    <Folder Include="Products\MutationTypes\" />
   </ItemGroup>
 </Project>

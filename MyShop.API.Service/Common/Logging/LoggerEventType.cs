@@ -1,4 +1,4 @@
-﻿namespace MyShop.API.Service
+﻿namespace MyShop.API.Service.Common.Logging
 {
     public enum LoggerEventType
     {

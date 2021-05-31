@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace MyShop.API.Service
+namespace MyShop.API.Service.Common.Logging
 {
     public static class LoggerEvents
     {
